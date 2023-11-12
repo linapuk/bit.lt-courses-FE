@@ -1,0 +1,39 @@
+body {
+    margin: 20px 200px 20px 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 25px;
+  }
+  
+  .invoice {
+    font-size: 30px;
+    font-weight: 400;
+    color: grey;
+  }
+  
+  table {
+    font-family:'Roboto';
+    font-size: 20px;
+    width: 800px;
+  }
+
+td {
+    /* border:1px solid black; */
+    width: 50%;
+}
+.secondTable {
+    font-size: 17px;
+}
+
+.companyDetails {
+    width: 75%;
+}
+
+.date {
+    text-align: center;
+    color:rgb(15, 15, 122);
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+}
