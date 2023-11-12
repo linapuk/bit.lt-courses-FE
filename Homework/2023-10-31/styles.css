@@ -1,0 +1,36 @@
+body {
+    font-family: Arial
+}
+
+.calendar {
+    text-align: center;
+    margin: 20px auto;
+
+    width: 600px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    
+}
+
+table {
+    width: 100%;
+    border: 2px solid #333;
+}
+
+th {
+    background-color:white;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    
+}
+
+td {
+    border: 1px solid #ccc;
+}
+
+tr {
+    border: 2px solid rgb(255, 255, 255);
+}
