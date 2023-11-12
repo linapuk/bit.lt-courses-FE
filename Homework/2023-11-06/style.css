@@ -1,5 +1,5 @@
 body {
-    margin: 20px 200px 20px 200px;
+    margin: 50px 50px 50px 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +23,7 @@ td {
     /* border:1px solid black; */
     width: 50%;
 }
+
 .secondTable {
     font-size: 17px;
 }
@@ -35,5 +36,72 @@ td {
     text-align: center;
     color:rgb(15, 15, 122);
     font-weight: bold;
-    border-bottom: 1px solid grey;
+    border-bottom: 2px solid rgb(201, 198, 198);
+}
+
+.thirdTable {
+    font-size: 17px;
+    padding-top: 20px
+}
+
+.header {
+    color:rgb(15, 15, 122);
+    font-weight: bold;
+    border-bottom: 2px solid rgb(201, 198, 198);
+    width: 45%;
+}
+
+.thirdTableText {
+    width: 45%;
+}
+
+.space {
+    width: 10%;
+}
+.fourthTable {
+    font-size: 15px;
+    padding-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.fourthTableHeader {
+    background-color: rgb(43, 100, 214);
+    color:white;
+    text-align: center;
+    width: auto;
+}
+
+.fourthTableText {
+    width: auto;
+}
+
+.fourthTableText1 {
+    width: auto;
+    text-align: right;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.fourthTableText2 {
+    width: auto;
+    text-align: right;
+    font-size: 13px;
+    border-bottom: 2px solid rgb(201, 198, 198);
+}
+
+.fourthTableText3 {
+    width: auto;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.fourthTableText4 {
+    width: auto;
+    background-color: rgb(193, 209, 241);
+    font-weight: bold;
+    text-align: right;
+    border-bottom: 2px solid rgb(1, 1, 1);
+    height: 45px;
+    font-size: 18px;
 }
