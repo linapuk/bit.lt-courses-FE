@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Stilių Hierarchija</title>
+    <!-- <link href="style.css" rel="stylesheet"> pperkeliu stiliu zemiau kad pemusti purple-->
+    <style>
+        h1 {
+            color:red;
+            font-size: 20px;
+        }
+/* CSS stiliaus priskyrimas pagal selectoriaus poziciją sąraše bei selectoriaus individualumą*/
+         h1.purple {
+            color: purple;
+        }   
+
+        .blue {
+            color: blue!important; 
+        }
+    /* ID CSS stiliuje yra žymima grotelėmis */
+    #tomato {
+        color: tomato;
+    }
+
+    h1#tomato {
+        color: black;
+    }
+    /* Pats unikaliausias variantas CSS hiierachijoje yra inline atributo stilius */
+
+
+    </style>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, incidunt!</h1>
+    <h1 class="blue">Lorem ipsum dolor sit amet.</h1>
+    <h1 class="blue purple" id="tomato" style="color:yellow!important">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h1>
+    <h1 class="purple">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, dignissimos!</h1>
+    <div class="blue purple">Lorem ipsum dolor sit amet.</div>
+</body>
+</html>

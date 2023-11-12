@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS inheritance</title>
+    <style>
+        body {
+            color: blueviolet;
+        }
+        .red {
+            color:red;
+            height: 150px;
+        }
+
+        p {
+            color: blue;
+        }
+
+        .paveldejimas {
+            /* inherit raktažodis nurod paveldėjimą iš tėvinio elemento (paveldi tai kas yra aukščiau ir susiję su šriftais) */
+            height: inherit;
+            /* unset raktažodis pašalina kas būna priskirta (reikšmę), naudojama kuriant respnsive puslapius */
+            color: unset;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="red">
+        <div class="blue">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ea, ipsa qui magnam eveniet, magni minus et placeat cumque earum blanditiis libero voluptate laboriosam natus incidunt dolorum, fugiat nihil odio facilis atque. Sint animi dolor tenetur inventore labore? Ea, maiores ratione neque architecto distinctio maxime necessitatibus perspiciatis dolore asperiores atque nisi? Nisi placeat perspiciatis accusamus nemo magnam excepturi, id velit consequatur numquam commodi eum inventore itaque facilis aperiam possimus fugiat nam iste eius. Architecto officia, sint eveniet, recusandae dolores deserunt tempora natus quis error ipsam adipisci animi debitis inventore aliquam ratione excepturi nisi, veniam voluptas ut ex magnam molestias quo!</p>
+        <p class="paveldejimas">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem, eius?</p>
+        </div> 
+    </div>
+</body>
+</html>
