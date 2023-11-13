@@ -1,0 +1,53 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Open Sans;
+    font-size: 15px;
+}
+
+ul {
+    margin: 0;
+    padding:10px;
+    list-style: none;
+    display:flex;
+    gap: 20px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    margin-right: 500px;
+}
+
+section {
+    height: 300px;
+}
+
+.section1 {
+    background-color:rgb(27, 177, 142) ;
+}
+.section2 {
+    background-color:rgb(27, 130, 177) ;
+}
+.section3 {
+    background-color:rgb(157, 177, 27) ;
+}
+.section4 {
+    background-color:rgb(201, 228, 29) ;
+}
+
+.section5 {
+    background-color:rgb(29, 228, 182) ;
+}
+
+
+footer {
+    text-align: left;
+    padding: 20px;
+}
