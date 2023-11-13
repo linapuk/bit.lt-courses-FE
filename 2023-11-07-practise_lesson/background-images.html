@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background images</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+         .background {
+            height: 360px;
+            background-color: black;
+
+            /* Fono nuotraukos adresas */
+            background-image: url(top-20-small-dog-breeds.jpeg.webp);
+
+            /* Fono nuootrauka gali būti ir nuooroda */
+            /* background-image: url(https://static.nationalgeographic.fr/files/styles/image_3200/public/75552.ngsversion.1422285553360.webp?w=1150&h=767&q=100); */
+
+            /* Išjungiamas fono nuotraukos pakartojimas (nesvarbu kad nuotrauka didesne, ji lieka savo originalaus dydzio). background-repeat nurodyti reikia x ir y asyje */
+            background-repeat: no-repeat;
+
+            /* kartojimas tik į dešinę pusę */
+            /* background-repeat: repeat-x; */
+
+            /* kartojimas tik į žemyn */
+            /* background-repeat: repeat-y; */
+            
+            /* originali background-repeat reikšmė */
+            /* background-repeat: repeat; */
+
+            /* Fono pozicijoospirmas nurodo iš šono kiek pozicionuojama nuotrauka, o kitas - iš viršaus */
+            /* background-position: 10px 10px; */
+            /* background-position: 50% 50%; */
+            /* background-position: top left; */
+            /* background-position: bottom left; */
+            background-position: center center;
+            
+            /* Fono dydis */
+            /* background-size: 1500px 500px; */
+            /* background-size: 100%; */
+            /* Viso elemento ploto uždengimas pagal aukščio ir pločio diferencialą */
+            background-size: cover;
+            /* nuotrauka išsitempia per visa poti, bet išviraus netempia */
+            /* background-size: contain; */
+            /* background-attachments nurodo, jog nuotrauka liks fiksuotoje padetyje slenkant puslapi zemyn*/
+            background-attachment: fixed;
+            
+            /* tiesiog bendrinis variantas, viskas appjungta tai kas aprasyta auksciau */
+            background: black url(top-20-small-dog-breeds.jpeg.webp) no-repeat center center / cover fixed;
+
+         }   
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+
+</body>
+</html>
