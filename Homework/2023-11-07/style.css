@@ -5,35 +5,55 @@ html {
 body {
     font-family: Open Sans;
     font-size: 15px;
+    margin: 0;
+	padding: 0;
+	border: 0;
 }
 
 ul {
     margin: 0;
-    padding:10px;
+    padding:0px;
     list-style: none;
-    display:flex;
-    gap: 20px;
+    display: flex;
+    gap: 150px;
+}
+
+a {
+    text-decoration: none ;
+    font-size: 16px;
+    color: grey;
+}
+
+a:hover {
+    color: rgb(69, 67, 67);
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-end;
 }
 
 nav {
-    margin-right: 500px;
+    margin-right: 50px;
+    margin-bottom: 10px;
 }
 
 section {
-    height: 300px;
+    min-height: 300px;
 }
 
 .section1 {
-    background-color:rgb(27, 177, 142) ;
+    background-image: URL(blog-13.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 500px;
 }
 .section2 {
     background-color:rgb(27, 130, 177) ;
+    color: white;
+    padding-bottom: 10px;
 }
 .section3 {
     background-color:rgb(157, 177, 27) ;
@@ -46,6 +66,10 @@ section {
     background-color:rgb(29, 228, 182) ;
 }
 
+.container {
+    width: 1180px;
+    margin: 0 auto;
+}
 
 footer {
     text-align: left;
