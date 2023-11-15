@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+        label {
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            /* padding: 10px 20px; */
+            border: 1px solid grey;
+        }
+
+        /* Filtracia pagal atributa */
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <!-- Input savaime užsidarantis elementas -->
+        <!-- atributas text yra skirtas tekstui ivesti -->
+        <label>Jusu vardas</label>
+        <input type="text" placeholder="Vardenis Pavardenis" required>
+        <labbel>Produktu kiekis:</labbel>
+        <input type="number" placeholder="Iveskite kieki" min="1" max="50" value="1" required>
+        <!-- galima i email atributa vesti bet ka bet esme issiskiria del validaciju emailui-->
+        <label>Jusu el. pasto adresas</label>
+        <input type="email" placeholder="email@gmail.com" required>
+        <label>Jusu slaptazodis</label>
+        <input type="password" required>
+        <label>Pasirinkite spalva</label>
+        <input type="color">
+        <label>Pasirinkite fiksuota spalva</label>
+        <input type="color" list="spalvos">
+        <datalist id="spalvos">
+            <option value="#FFFFFF">Balta</option>
+            <option value="#000000">Juoda</option>
+            <option value="#CCCCCC">Pilka</option>
+        </datalist>
+        <label>Pasirinkite data</label>
+        <input type="date">
+        <label>Pasirinkite data ir laika</label>
+        <input type="datetime-local">
+        <label>Pasirinkite faila</label>
+        <input type="file">
+        <label>Pasirinkite failus</label>
+        <input type="file" multiple>
+
+        <h3>Checkboxes</h3>
+        <input type="checkbox">
+        <label>Susipazinau su privatumo pilitika</label>
+
+        <!-- clickas veikia ant teksto I budas -->
+        <label>
+            <input type="checkbox">
+            Susipazinau su privatumo politika.
+        </label>
+
+        <!-- clickas veikia ant teksto II budas -->
+        <div class="flex">
+        <input type="checkbox" id="newsletter">
+        <label for="newsletter">Noreciau gauti naujienlaiskius</label>
+        </div>
+        <!-- galiu kopijuoti virs esancia eilute i pati virsu, formoje matysiu label virsuje ir jjis bus clickable -->
+
+        <h3>Radio</h3>
+        <!-- atributas name="" padeda igyvendinti vieno pasirinkimo funkcionaluma -->
+        <label>
+            <input type="radio" name="topic">
+            <span>Saskaitos</span>
+        </label>
+        <label>
+            <input type="radio" name="topic">
+            <span>Klientu informacija</span>
+        </label>
+        <label>
+            <input type="radio" name="topic">
+            <span>Garantines paslaugos</span>
+        </label>
+
+        <h3>Select</h3>
+        <select>
+            <option>Saskaitos</option>
+            <option>Klientu informacija</option>
+            <option>Garantines pasaugos</option>
+        </select>
+
+
+        <button>Siusti</button>
+    </form>
+</body>
+</html>
