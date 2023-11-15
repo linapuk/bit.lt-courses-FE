@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positions</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            /* margin-bottom: -200px; */
+        }
+
+        .small-box {
+            width: 50px;
+            height: 50px;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+
+        .green{
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .relative {
+            position:relative;
+            top: 50px;
+        }
+
+        .absolute {
+            position: absolute;
+            /* Top ir left savybes turi prioriteta pries right ir bottom  */
+            top: 100px;
+            left: 100px;
+            /* right: 100px;
+            bottom:100px; */
+        }
+
+        .right-bottom {
+            right: 100px;
+            bottom: 100px;
+            /* uzdejus top ir left unset  pavyko numusti ju koordinates, cia net pagal hierarhija nesuveike sita salyga aprasyta auksciau del right ir bottom*/
+            top:unset;
+            left:unset;
+        }
+
+        /* .inner-box {
+            position:absolute;
+            top: 100px;
+            left: 100px;
+        } */
+
+        .z-index-1 {
+            z-index: 1;
+        }
+
+        .z-index-2 {
+            z-index: 2;
+        }
+
+        .height-100 {
+            height: 100px;
+            width: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Pagal nutylejima elementai turi priskirta pozicija static-->
+    <div class="box purple absolute right-bottom"></div>
+    <div class="box green relative">
+        <div class="small-box blue absolute z-index-2"></div>
+        <div class="small-box yellow absolute z-index-1"></div>
+        <div class="height-100 width-30 red absolute"></div>
+    </div>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint, expedita. Recusandae dolorum eligendi saepe. Impedit facere repellat, necessitatibus ipsa nisi, quam, minus magnam quas cum eligendi est perspiciatis ab ea! Aut rem, architecto, placeat incidunt eos eveniet facere fuga excepturi impedit ex magni voluptatum modi? Quod, perferendis error incidunt alias tenetur nihil perspiciatis fuga praesentium vero nulla quam, fugit dolorem amet neque itaque voluptas exercitationem odit placeat nisi, impedit facere! Beatae quae omnis adipisci inventore assumenda impedit non nesciunt cumque eum provident! Tempora praesentium natus deleniti quam mollitia ratione nostrum doloribus soluta maiores, cupiditate accusantium quidem debitis eius earum similique corporis voluptatum dolor! Placeat tenetur, modi nulla architecto rem, esse alias dolore iusto dolores explicabo reiciendis mollitia assumenda possimus quo maxime inventore. Quam modi nemo eligendi, nobis repellendus unde rerum harum expedita qui ullam reprehenderit esse vitae autem tenetur cumque quaerat asperiores laboriosam eius sed aliquam delectus animi. Officia enim neque vel veniam libero sit recusandae maiores necessitatibus deserunt quod odit, obcaecati eligendi optio ratione totam natus at consectetur. Recusandae accusamus dolore molestias neque adipisci officia commodi consequuntur repellat eveniet? Accusantium natus in sed ipsam doloribus. Inventore, cumque illum, corporis amet omnis, nesciunt laborum dolor laboriosam dolore fuga fugiat aliquid saepe autem consequuntur ut repellendus. Sit quo laudantium magnam, inventore nam eum hic quasi provident. Minus optio, error sapiente quaerat, maiores soluta impedit eos dignissimos neque rem quod voluptatem cupiditate mollitia? Voluptate cupiditate expedita soluta perspiciatis quam in. Porro magnam voluptate ipsum placeat perspiciatis, laborum hic harum facere laudantium veniam obcaecati officia expedita quod blanditiis laboriosam? Officiis eius molestiae ullam recusandae? Delectus dolores corporis iure vitae nisi doloribus, quisquam voluptatibus, dignissimos fugiat at velit qui dolorum? Quae voluptas rerum ipsam perferendis voluptate ullam aut corrupti autem obcaecati magnam quia quam soluta iure sapiente iusto earum, ab totam maxime saepe. Necessitatibus molestias et cumque optio sapiente sit reiciendis adipisci perspiciatis asperiores, ratione praesentium ut quasi, aliquid doloribus velit eveniet eaque voluptatem repudiandae ex dolorum doloremque voluptatibus assumenda consectetur ipsum? Adipisci, facere! Sed, omnis eligendi rerum odit, saepe totam itaque delectus quam quidem tenetur, accusantium numquam. In velit deleniti similique minima cupiditate doloribus quaerat quis ipsa, laborum commodi itaque quos. Eveniet, incidunt perspiciatis ipsam ea obcaecati nulla itaque odit doloremque aspernatur reiciendis? Fugiat, atque perspiciatis. Mollitia ipsam voluptate voluptates quam sed dolor amet delectus odit, aspernatur nesciunt eius culpa quibusdam laborum quidem. Animi laborum id reiciendis assumenda et, eos magnam adipisci aut perferendis incidunt eius unde exercitationem amet sint fugiat doloribus pariatur officia quis nemo molestias. Repellat, aspernatur. Delectus voluptate nisi ea odit nemo non atque, mollitia velit neque deleniti expedita repudiandae numquam iure culpa reiciendis in quidem exercitationem aliquid doloremque, asperiores soluta quod? Cum totam ipsam suscipit dolores, laborum cupiditate atque aliquam voluptatibus numquam nemo facilis repellendus consectetur voluptatum quis asperiores. Saepe accusantium quasi sint debitis aut cumque. Fuga, libero velit? Inventore, maiores ducimus error architecto excepturi ea explicabo placeat pariatur consequatur alias at tempora ex. Suscipit sunt expedita beatae numquam possimus atque neque praesentium voluptatem voluptate. Impedit modi animi sapiente!
+
+</body>
+</html>
