@@ -10,7 +10,7 @@ body {
 	border: 0;
 }
 
-ul {
+nav ul {
     margin: 0;
     padding:0px;
     list-style: none;
@@ -50,20 +50,44 @@ section {
     background-position: center center;
     height: 500px;
 }
+
+p.aboutUShort {
+    font-weight: bold;
+}
+
+
 .section2 {
     background-color:rgb(27, 130, 177) ;
     color: white;
     padding-bottom: 10px;
 }
 .section3 {
-    background-color:rgb(157, 177, 27) ;
+    background-color: white;
 }
+
+#ourClients .container {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    /* flex-direction: row; */
+    background-color: rgb(155, 151, 151);
+    margin-top: 80px;
+    /* width: 100px; */
+    height: 200px;
+    gap: 30px;
+}
+
+#ourClients h3 {
+    color: white;
+    font-weight: bold;
+}
+
 .section4 {
-    background-color:rgb(201, 228, 29) ;
+    background-color:rgb(152, 10, 5) ;
 }
 
 .section5 {
-    background-color:rgb(29, 228, 182) ;
+    background-color:rgb(155, 151, 151) ;
 }
 
 .container {
@@ -72,6 +96,6 @@ section {
 }
 
 footer {
-    text-align: left;
+    text-align: center;
     padding: 20px;
 }
