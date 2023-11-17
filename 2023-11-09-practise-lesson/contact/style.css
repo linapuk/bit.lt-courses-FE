@@ -1,0 +1,87 @@
+/* visų elementų pasirinkimas */
+* {
+    /* į bendrą plotį neįskaičiuojami margin ir padding reiksmes */
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    background: url(images/bg.png) no-repeat center center;
+}
+
+.contact {
+    position: relative;
+    background-color: white;
+    /* tik ploti nurodome, nes bus responsive*/
+    /* tvarkant responsive dali pakoreguojama jog max plotis yra 1440px o plotis yra 100proc */
+    max-width: 1440px; 
+    /* pridejus procentine israiska keician puslapip lango ploti keiciasi ir bloko, taip pat ir left ir right, nes ju plociai ir auksciai nustatyti procentine israiska */
+    width: 100%;
+    /* margin 100px atitrauksim nuo virsaus ir apacios, o sonai iscentruoti, nes auto */
+    margin: 100px auto;
+    border-radius: 40px;
+    /* laikinai uzsetinam auksti, kad ggalima vizualiai butu pamatyti */
+        /* kai susidesiu turini reik nuimti auksti jis reikalingas tik laikinai */
+    height: 600px;
+    /* matome jog sitame baltame bloke yra atitraukimas viduje todel darme padding, tai atlikus contact bloko pasikeite potis dabar jis igavo 1440+50+50=1540px ggalima tada is width 1440-100px bet nerekomenduojama taip daryti, todel itraukiamas box-sizing: border-box*/
+    padding: 30px 50px;
+    /* paslepia viska kas islenda uz elemento ribu, siuo atveju "after" pseudo elemento krastines */
+    overflow: hidden;
+}
+
+/* siuo atveju nesvarbu kuri renkuosi pseudo elementa before ar after */
+.contact::after {
+    /* content bus tuscia eiksme */
+    content: "";
+    position: absolute;
+    /* talpinsim si bloka virsutiniame desiniame kampe */
+    top: 0;
+    right: 0;
+    background-color: #6DE1C2 ;
+    /* kadangi tevinio elemento aukstis buvo fiksuotas tai ir cai galima butu nurodyti, taciau ems darome responsive, todel teviniame aukstis yra uzkomentuotas ir cia taip apt uzkomentiuojam ir suteikiame procentine israiska, kuri nurodo, jog pseudo elementas turi atitikti 100proc tevinio elemento */
+    /* height: 800px; */
+    height: 100%;
+    width: 419px;
+    /* panaudojus z-index dingo visas blokas */
+    /* z-index: -1; */
+    /* tam kad uzapvalinti vienos krastines kampus, taciau uzkomentuoti nes naudosim  teviniame elemente -> overflow: hidden; */
+    /* border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px; */
+
+}
+
+.contact-inner {
+    /* laikinai priskyrem auksti kad vizualiai matyciau narsykles lange */
+    height: 550px;
+    display: flex;
+    /* vis tik nusprende jog tam akd iskelti sita bloka parinko position relative */
+    position: relative;
+    z-index: 1;
+
+}
+
+.left {
+    /* laikinai priskiriam spalva */
+    background-color: aquamarine;
+    width: 50%;
+        /* kai susidesiu turini reik nuimti auksti jis reikalingas tik laikinai */
+    height: 100%;
+
+}
+
+.right {
+    /* laikinai priskiriam spalva */
+    background-color: blueviolet;
+    width: 50%;
+        /* kai susidesiu turini reik nuimti auksti jis reikalingas tik laikinai */
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-inner {
+        flex-direction: column;
+    }
+    .left,
+    .right {
+        width: 100%;
+    }
+}
