@@ -5,15 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact form</title>
-    <link href="style.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans&family=Oswald&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@400;600&family=Open+Sans&family=Oswald&family=Roboto:wght@400;700&display=swap" rel="stylesheet">    <link href="style.css" rel="stylesheet"/>
     
 </head>
 <body>
-    <div class="contact">
-        <div class="contact-inner">
-            <div class="left"></div>
-            <div class="right"></div>
+    <div class="wrapper">
+        <div class="contact">
+            <div class="contact-inner">
+                <div class="left">
+                    <h1>Get in <span>touch</span></h1>
+                    <p>Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo molestie vel, ornare non id blandit netus.</p>
+                    <input type="text" placeholder="Contact Name" />
+                    <input type="text" placeholder="Street" />
+                    <input type="text" placeholder="City" class="city" />
+                    <input type="number" placeholder="Postcode"  class="postcode" />
+                    <input type="text" placeholder="Contact Phone" />
+                    <input type="email" placeholder="E-mail" />
+                    <input type="text" placeholder="Let's talk about your idea" />
+                    <div class="upload">
+                        <div class="uploadImage"><img src="images/upload.png" alt="Upload image"/></div>
+                        <div class="uploadtext">Upload Additional file</div>
+                    </div>
+                    <div class="attach">Attach file. File size of your document should not exceed 10MB.</div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" />
+                            <span>I want to protect my data by signning an NDA.</span>
+                        </label>
+                    </div>
+                    <div class="center">
+                        <button>SUBMIT</button>
+                    </div>
+                    <div class="footer">
+                        <div class="iconGroup">
+                            <div class="phoneIcon"><img src="images/phone.png" alt="Phone image"></div>
+                            <div class="iconText">
+                                Phone<br/>
+                                <span class="red">111 111 111</span>
+                            </div>
+                        </div>
+                        <div class="iconGroup">
+                            <div class="emailIcon"><img src="images/email.png" alt="Email image"></div>
+                            <div class="iconText">
+                                E-MAIL<br/>
+                                <span class="red">info@company.com</span>
+                            </div>
+                        </div>
+                        <div class="iconGroup">
+                            <div class="emailIcon"><img src="images/email.png" alt="Email image"></div>
+                            <div class="iconText">
+                                HELPDESK<br/>
+                                <span class="red">https://helpdesk.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="map"><img src="images/map.png" alt="Map" /></div>
+                </div>
 
+            </div>
         </div>
     </div>
 </body>

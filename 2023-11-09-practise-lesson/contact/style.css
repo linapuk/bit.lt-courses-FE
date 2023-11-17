@@ -3,9 +3,133 @@
     /* į bendrą plotį neįskaičiuojami margin ir padding reiksmes */
     box-sizing: border-box;
 }
+
 body {
     margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+ }
+
+ .wrapper {
     background: url(images/bg.png) no-repeat center center;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center; 
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    -ms-content-zooming: none;
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow: scroll;
+    font-family: 'Inter';
+    color: #8E8E8E;
+}
+
+ h1{
+    font-family: Montserrat;
+    font-weight:600;
+    font-size: 40px;
+    color: black;
+    margin: 0;
+}
+
+.left p {
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight:400;
+    color: black;
+    padding-bottom: 20px;
+}
+
+h1 span {
+    color: #6DE1C2 ;
+}
+
+input[type="text"], input[type="email"], input[type="number"] {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-bottom: 1px Solid #8E8E8E;
+    padding-left: 10px;
+    padding-top: 25px;
+    color: #8E8E8E;
+    font-size: 12px;
+}
+
+input.city {
+    width: 60%;
+}
+
+input.postcode {
+    margin-left: 10%;
+    width: 29%;
+}
+
+.left .upload {
+    border: 1px dashed #8E8E8E;
+    margin-top: 15px;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.footer .uploadImage img{
+    width: 10px;
+    /* nesikeicia */
+}
+
+.left label {
+    padding-top: 8px;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.left label span {
+    font-size: 12px;
+}
+
+button {
+    background-color: #0982FE;
+    width: 100%;
+    border: 0;
+    height: 35px;
+    color: white;
+    font-size: 11px;
+    border-radius: 8px;
+}
+
+.left .attach {
+    font-size: 10px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+.footer {
+    padding-top: 20px;
+}
+
+.footer .iconText {
+    font-size: 10px;
+    font-family: Montserrat;
+    font-weight: 600;
+    color: black;
+}
+
+.footer .iconText .red {
+    color:#DD5471;
+    font-weight: 400;
+}
+
+.footer .phoneIcon, .footer .emailIcon {
+    width: 40px;
+}
+
+.footer .iconGroup {
+    display: flex;
+    width: 32%;
 }
 
 .contact {
@@ -21,7 +145,7 @@ body {
     border-radius: 40px;
     /* laikinai uzsetinam auksti, kad ggalima vizualiai butu pamatyti */
         /* kai susidesiu turini reik nuimti auksti jis reikalingas tik laikinai */
-    height: 600px;
+    /* height: 715px; */
     /* matome jog sitame baltame bloke yra atitraukimas viduje todel darme padding, tai atlikus contact bloko pasikeite potis dabar jis igavo 1440+50+50=1540px ggalima tada is width 1440-100px bet nerekomenduojama taip daryti, todel itraukiamas box-sizing: border-box*/
     padding: 30px 50px;
     /* paslepia viska kas islenda uz elemento ribu, siuo atveju "after" pseudo elemento krastines */
@@ -51,7 +175,7 @@ body {
 
 .contact-inner {
     /* laikinai priskyrem auksti kad vizualiai matyciau narsykles lange */
-    height: 550px;
+    /* height: 650px; */
     display: flex;
     /* vis tik nusprende jog tam akd iskelti sita bloka parinko position relative */
     position: relative;
@@ -61,27 +185,89 @@ body {
 
 .left {
     /* laikinai priskiriam spalva */
-    background-color: aquamarine;
+    /* background-color: rgb(216, 221, 219); */
     width: 50%;
         /* kai susidesiu turini reik nuimti auksti jis reikalingas tik laikinai */
-    height: 100%;
+    /* height: 100%; */
+    padding-right: 50px;
+    padding-bottom: 20px;
 
 }
 
 .right {
     /* laikinai priskiriam spalva */
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     width: 50%;
         /* kai susidesiu turini reik nuimti auksti jis reikalingas tik laikinai */
     height: 100%;
 }
 
+.footer {
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: right;
+}
+
+
+
+
+
 @media screen and (max-width: 768px) {
+
+    .wrapper {
+        background: none;;
+        border-right: 6px Solid #6DE1C2;
+    }
+
+    .contact {
+        border-radius: 0;
+        margin: 0;
+        padding: 20px 10px;
+    }
+
     .contact-inner {
         flex-direction: column;
     }
     .left,
     .right {
         width: 100%;
+        padding: 0;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    button {
+        width: 80%;
+    }
+
+    .checkbox {
+        padding-left: 10%;
+    }
+
+    .footer {
+        flex-direction: column;
+        padding-left: 10%;
+        padding-bottom: 30px;
+    }
+
+    .footer .emailIcon {
+        margin: 0;
+    }
+
+    .contact::after {
+        background: none;
+    }
+
+    .map {
+        overflow: auto;
     }
 }
+
