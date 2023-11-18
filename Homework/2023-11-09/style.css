@@ -1,0 +1,273 @@
+/* visų elementų pasirinkimas */
+* {
+    /* į bendrą plotį neįskaičiuojami margin ir padding reiksmes */
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+ }
+
+ .wrapper {
+    background: url(images/bg.png) no-repeat center center;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center; 
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    -ms-content-zooming: none;
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow: scroll;
+    font-family: 'Inter';
+    color: #8E8E8E;
+}
+
+ h1{
+    font-family: Montserrat;
+    font-weight:600;
+    font-size: 40px;
+    color: black;
+    margin: 0;
+}
+
+.left p {
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight:400;
+    color: black;
+    padding-bottom: 20px;
+}
+
+h1 span {
+    color: #6DE1C2 ;
+}
+
+input[type="text"], input[type="email"], input[type="number"] {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-bottom: 1px Solid #8E8E8E;
+    padding-left: 10px;
+    padding-top: 25px;
+    color: #8E8E8E;
+    font-size: 12px;
+}
+
+input.city {
+    width: 60%;
+}
+
+input.postcode {
+    margin-left: 10%;
+    width: 29%;
+}
+
+.left .upload {
+    border: 1px dashed #8E8E8E;
+    margin-top: 15px;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.footer .uploadImage img{
+    width: 10px;
+    /* nesikeicia */
+}
+
+.left label {
+    padding-top: 8px;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.left label span {
+    font-size: 12px;
+}
+
+button {
+    background-color: #0982FE;
+    width: 100%;
+    border: 0;
+    height: 35px;
+    color: white;
+    font-size: 11px;
+    border-radius: 8px;
+}
+
+.left .attach {
+    font-size: 10px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+.footer {
+    padding-top: 20px;
+}
+
+.footer .iconText {
+    font-size: 10px;
+    font-family: Montserrat;
+    font-weight: 600;
+    color: black;
+}
+
+.footer .iconText .red {
+    color:#DD5471;
+    font-weight: 400;
+}
+
+.footer .phoneIcon, .footer .emailIcon {
+    width: 40px;
+}
+
+.footer .iconGroup {
+    display: flex;
+    width: 32%;
+}
+
+.contact {
+    position: relative;
+    background-color: white;
+    /* tik ploti nurodome, nes bus responsive*/
+    /* tvarkant responsive dali pakoreguojama jog max plotis yra 1440px o plotis yra 100proc */
+    max-width: 1440px; 
+    /* pridejus procentine israiska keician puslapip lango ploti keiciasi ir bloko, taip pat ir left ir right, nes ju plociai ir auksciai nustatyti procentine israiska */
+    width: 100%;
+    /* margin 100px atitrauksim nuo virsaus ir apacios, o sonai iscentruoti, nes auto */
+    margin: 100px auto;
+    border-radius: 40px;
+    /* laikinai uzsetinam auksti, kad ggalima vizualiai butu pamatyti */
+        /* kai susidesiu turini reik nuimti auksti jis reikalingas tik laikinai */
+    /* height: 715px; */
+    /* matome jog sitame baltame bloke yra atitraukimas viduje todel darme padding, tai atlikus contact bloko pasikeite potis dabar jis igavo 1440+50+50=1540px ggalima tada is width 1440-100px bet nerekomenduojama taip daryti, todel itraukiamas box-sizing: border-box*/
+    padding: 30px 50px;
+    /* paslepia viska kas islenda uz elemento ribu, siuo atveju "after" pseudo elemento krastines */
+    overflow: hidden;
+}
+
+/* siuo atveju nesvarbu kuri renkuosi pseudo elementa before ar after */
+.contact::after {
+    /* content bus tuscia eiksme */
+    content: "";
+    position: absolute;
+    /* talpinsim si bloka virsutiniame desiniame kampe */
+    top: 0;
+    right: 0;
+    background-color: #6DE1C2 ;
+    /* kadangi tevinio elemento aukstis buvo fiksuotas tai ir cai galima butu nurodyti, taciau ems darome responsive, todel teviniame aukstis yra uzkomentuotas ir cia taip apt uzkomentiuojam ir suteikiame procentine israiska, kuri nurodo, jog pseudo elementas turi atitikti 100proc tevinio elemento */
+    /* height: 800px; */
+    height: 100%;
+    width: 419px;
+    /* panaudojus z-index dingo visas blokas */
+    /* z-index: -1; */
+    /* tam kad uzapvalinti vienos krastines kampus, taciau uzkomentuoti nes naudosim  teviniame elemente -> overflow: hidden; */
+    /* border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px; */
+
+}
+
+.contact-inner {
+    /* laikinai priskyrem auksti kad vizualiai matyciau narsykles lange */
+    /* height: 650px; */
+    display: flex;
+    /* vis tik nusprende jog tam akd iskelti sita bloka parinko position relative */
+    position: relative;
+    z-index: 1;
+
+}
+
+.left {
+    /* laikinai priskiriam spalva */
+    /* background-color: rgb(216, 221, 219); */
+    width: 50%;
+        /* kai susidesiu turini reik nuimti auksti jis reikalingas tik laikinai */
+    /* height: 100%; */
+    padding-right: 50px;
+    padding-bottom: 20px;
+
+}
+
+.right {
+    /* laikinai priskiriam spalva */
+    /* background-color: blueviolet; */
+    width: 50%;
+        /* kai susidesiu turini reik nuimti auksti jis reikalingas tik laikinai */
+    height: 100%;
+}
+
+.footer {
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: right;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    .wrapper {
+        background: none;;
+        border-right: 6px Solid #6DE1C2;
+    }
+
+    .contact {
+        border-radius: 0;
+        margin: 0;
+        padding: 20px 10px;
+    }
+
+    .contact-inner {
+        flex-direction: column;
+    }
+    .left,
+    .right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    button {
+        width: 80%;
+    }
+
+    .checkbox {
+        padding-left: 10%;
+    }
+
+    .footer {
+        flex-direction: column;
+        padding-left: 10%;
+        padding-bottom: 30px;
+    }
+
+    .footer .emailIcon {
+        margin: 0;
+    }
+
+    .contact::after {
+        background: none;
+    }
+
+    .map {
+        overflow: auto;
+    }
+}
+
