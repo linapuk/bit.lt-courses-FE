@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text formatting</title>
+    <style>
+        .letter-spacing {
+            /* nurodo tarpeliu ploti tarp kiekvieno simbolio */
+            letter-spacing: 10px;
+            /* letter-spacing: -1px; */
+        }
+
+        .text-indent {
+            /* per kiek px patraukti pirmaja eilute nuo krasto */
+            text-indent: 20px;
+            /* text-intent: -10px; */
+        }
+
+        .white-space {
+            /* pagal nutylejima yra wrap reiksme t.y. kad luztu tekstas kai nebetelpa i langa */
+            white-space: wrap;
+            /* nowrap padaro i viena ilga eilute ir teksta nebeluzta nors ir nebetelpa i langa */
+            /* white-space: nowrap; */
+        }
+
+        .tab-size {
+            /* kelia i kita eilute ir taip tampa jog nebereikia <br> elemento */
+            white-space: pre-wrap;
+            tab-size: 5;
+        }
+
+        .text-shadow {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            /* ant teksto uzdedamas seselio efektas */
+            text-shadow: 5px 5px rgba(0, 0, 0, 0.241);
+        }
+
+        .text-transform {
+            /* none - tekstas nera transformuojamas */
+            text-transform: none;
+            /* Didziosios raides */
+            text-transform: uppercase;
+            /* Mazosios raides */
+            text-transform: lowercase;
+            /*  Zodziai is didziuju raidziu */
+            text-transform: capitalize;
+
+        }
+
+        .word-spacing {
+            /* zdziai atskyriami nurodytu atstumu */
+            word-spacing: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <p class="letter-spacing">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus sint tempore sequi cum fugit obcaecati delectus soluta consequatur aliquid, inventore quidem recusandae perspiciatis, asperiores omnis, dicta beatae? Ad dolorem et corporis, magnam velit sapiente, repellat eius voluptatibus sit dicta, sed nemo ipsam placeat quod earum eum? Commodi assumenda mollitia accusantium.</p>
+    <p class="text-indent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem commodi cupiditate tenetur ea, quae odit ducimus dolores? Eaque, quam deleniti! Recusandae iusto, beatae dolorum laborum iure ut similique sed tempore repudiandae hic veniam ex suscipit dolores numquam facilis perferendis eos cumque provident in! Deserunt ipsam deleniti inventore quisquam quos eius voluptate. Laudantium nam aperiam saepe voluptas, deserunt assumenda doloremque doloribus, voluptate eius ipsum dolor dolores. Perspiciatis accusantium dicta earum natus quo tempora officia, similique voluptate repudiandae eius qui, eveniet illum ipsum, distinctio aperiam quod soluta dolorem. Adipisci enim ab quidem nam tenetur provident. Neque nesciunt hic unde, ipsa tempore ipsam?</p>
+    <p class="white-space">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem commodi cupiditate tenetur ea, quae odit ducimus dolores? Eaque, quam deleniti! Recusandae iusto, beatae dolorum laborum iure ut similique sed tempore repudiandae hic veniam ex suscipit dolores numquam facilis perferendis eos cumque provident in! Deserunt ipsam deleniti inventore quisquam quos eius voluptate. Laudantium nam aperiam saepe voluptas, deserunt assumenda doloremque doloribus, voluptate eius ipsum dolor dolores. Perspiciatis accusantium dicta earum natus quo tempora officia, similique voluptate repudiandae eius qui, eveniet illum ipsum, distinctio aperiam quod soluta dolorem. Adipisci enim ab quidem nam tenetur provident. Neque nesciunt hic unde, ipsa tempore ipsam?</p>
+    <p class="tab-size">Lorem ipsum dolor 
+        sit amet consectetur adipisicing elit. 
+        Dolorem commodi cupiditate tenetur ea, 
+        quae odit ducimus dolores? Eaque, quam deleniti! Recusandae iusto, 
+        beatae dolorum
+        laborum iure ut similique sed tempore repudiandae hic veniam ex suscipit dolores numquam facilis perferendis eos cumque provident in! Deserunt ipsam deleniti inventore quisquam quos eius voluptate. Laudantium nam aperiam saepe voluptas, deserunt assumenda doloremque doloribus, voluptate eius ipsum dolor dolores. Perspiciatis accusantium dicta earum natus quo tempora officia, similique voluptate repudiandae eius qui, eveniet illum ipsum, distinctio aperiam quod soluta dolorem. Adipisci enim ab quidem nam tenetur provident. Neque nesciunt hic unde, ipsa tempore ipsam?</p>
+    <pre>
+        <!-- pakeicia automatiskai srifta  -->
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus consectetur quos ipsum. Eligendi ab dolore provident laboriosam quidem odit, a optio repellat error rerum assumenda laudantium. Minus placeat similique assumenda eligendi? Officiis maiores ducimus debitis officia expedita tenetur blanditiis maxime veritatis sint, molestiae odit at, nihil dolores obcaecati dignissimos? Hic nihil voluptatum non, temporibus nemo sunt, veniam quam esse vero laborum doloremque recusandae molestias tempore in expedita maxime quasi dolore quod et blanditiis dicta! Animi eum neque rem illo? Recusandae excepturi commodi laborum velit consectetur iste rerum libero accusantium molestias, id voluptas impedit, ducimus aliquid eveniet tenetur repellendus doloribus alias.
+        Tekstas
+        Tekstas
+    </pre>
+    <p class="text-shadow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quibusdam, doloremque voluptatibus corrupti quo aliquid cumque culpa et explicabo nobis molestias sapiente tempora eligendi, rerum architecto hic inventore ea. Doloribus, earum ex quibusdam, minus accusantium amet libero quaerat, itaque alias illum illo quidem a odit iusto soluta corporis? Explicabo incidunt esse, aut, mollitia laudantium magni iusto pariatur quae harum laborum sequi quam adipisci, in nihil excepturi debitis sint impedit doloribus eveniet earum delectus iure dolores? Veritatis, rerum. Soluta labore assumenda provident vitae iste neque id omnis, perferendis optio. Exercitationem, distinctio quia! Incidunt quisquam obcaecati quidem hic animi quibusdam architecto beatae!</p>
+    <p class="text-transform">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, inventore molestiae. Architecto fuga provident consequuntur hic minima commodi perspiciatis aliquam nulla quod vitae vel quo dolorem repudiandae doloremque iusto nisi, sint neque iure possimus quibusdam ipsa facilis dolore eos in? Eligendi, quibusdam quod molestiae deserunt perferendis quis officia incidunt eius voluptatum asperiores necessitatibus inventore voluptatem, tenetur maxime assumenda rerum praesentium soluta neque alias nulla, laboriosam minus explicabo earum! Molestias eveniet nulla consectetur sit expedita, corrupti sed provident voluptates error praesentium sapiente sequi hic consequatur? Rem accusamus distinctio vel in repudiandae, explicabo fugiat amet illo soluta optio? Repellat nesciunt quidem dolores!</p>
+    <p class="word-spacing">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic, maiores, assumenda totam ducimus reiciendis magnam similique maxime inventore quis ex, voluptatum est laboriosam tempora enim placeat laborum nisi molestiae minus perferendis saepe quae possimus at? Neque deleniti porro corrupti modi nesciunt, ipsam impedit eum non, tenetur vel repellat ea atque, praesentium tempore culpa. Voluptatum odio, soluta voluptas quis illo animi consequuntur commodi in fugiat dolore. Aspernatur magni possimus illum numquam, corporis id illo repellat iste non, impedit et facilis iure hic, consequuntur beatae praesentium dicta eligendi sapiente reprehenderit voluptas corrupti nobis odio. Nemo, sint sed. Libero mollitia assumenda quae accusamus?</p>
+</body>
+</html>

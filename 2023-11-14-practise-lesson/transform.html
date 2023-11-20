@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 60px;
+        }
+
+        .color1 {
+            background-color: indigo;
+        }
+
+        .color2 {
+            background-color: rgb(25, 96, 32);
+        }
+
+        .color3 {
+            background-color: rgb(132, 71, 13);
+        }
+
+        .color4 {
+            background-color: rgb(191, 24, 217);
+        }
+
+        .rotate {
+            /* skirta pasukti elementa, deg reiskia laipsniai, pasisuka kartu ir tekstas viduje */
+            /* kai atliekam transformacija kiti elementai nekeicia savo pozicijos */
+            transform: rotate(45deg);
+        }
+
+        .scale {
+            /* mastelio pritaikymas */
+            margin-top: 100px;
+            /* padideja ant tiek kiek nurodyta skliaustuose ir nekeicia savo pozicijos, taip pat pasikeicia ir teksto viduje mastelis */
+            transform: scale(1.5);
+        }
+
+        .skew {
+            margin-top: 100px;
+            /* tempimas elemento gaimas i abi puses priklauso nuo "-" uzdejimo */
+            transform: skew(-25deg, 50deg);
+        }
+
+        .translate {
+            /* daznai naudojamas, panasus i pozicionavima tik islieka atstumas turinys, tai objektas keicia savo vieta */
+            /* transform: translate(50, -50px); */
+            position: absolute;
+            /* tarkim norim per centra ispozicionuoti, tai priskyriam 50% ir atliekam toki matematini veiksla 50%-300px/2 */
+            /* sita calc funkcija turi minusa, nes jai yra priskirta konkreti reiksme, ir jei keisiu narsykles lango ploti yra pajungtas media queris ir jei pakeiciam dezutes ismatavimus, bet dezutes ismatavimai jau yra uzfiksuoti su calc paskaiciavimu */
+            /* kaip ir amtematikoje pirma atlieka dalyba tada is eiles, galima deti skliaustelius, kad pakeisti prioriteta */
+            /* top: calc(50% - 300px / 2);
+            left: calc(50% - 300px / 2); */
+            top: 50%;
+            left: 50%;
+            /* turime 50% is virsaus ir 50proc is kaires, plius 300px is virsaus ir apacios, ir nesvarbu jei sitos desutes dydis keisis sita centravimo taisykle vis vein galios nesvarbu koki breakpointa pasieksime, gali procentai buti ir neigiami */
+            transform: translate(100%, 100%);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box color1 rotate">1</div>
+    <div class="box color2 scale">2</div>
+    <div class="box color3 skew">3</div>
+    <div class="box color4 translate">4</div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse optio nobis labore accusamus! Ipsa, quibusdam! Excepturi, praesentium fugiat? Magnam, voluptates corrupti. Dignissimos, aspernatur. Voluptatibus provident ullam aspernatur corrupti, nam aperiam vitae animi dolores est, accusamus cupiditate maiores et odit harum saepe, enim illum. Rem qui, nemo quibusdam quidem cupiditate cumque, explicabo atque ad error iusto libero eligendi, officiis reiciendis pariatur laudantium! Est blanditiis et, sint, reprehenderit voluptatibus facilis minima consectetur quis dolorem id molestiae similique error placeat aut illum delectus consequuntur. Adipisci quae doloribus blanditiis enim. Neque accusantium quo voluptate corrupti officia aspernatur amet quae cupiditate. Repellat nemo quas blanditiis?
+    
+</body>
+</html>
