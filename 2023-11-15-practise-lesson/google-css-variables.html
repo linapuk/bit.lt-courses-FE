@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google CSS variable</title>
+    <style>
+        body {
+            /* kintamieji paveldimi */
+            --background-color: white;
+            --input-background-color: white;
+            --input-border-color: rgb(182, 177, 177);
+            --button-background-color:rgb(203, 196, 196);
+            --button-color: rgb(84, 81, 81);
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--background-color);
+        }
+
+        body.dark {
+            --background-color: rgb(48, 45, 45);
+            --input-background-color: rgb(48, 45, 45);
+            --input-border-color: rgb(104, 95, 95);
+            --button-background-color:rgb(104, 95, 95);
+            --button-color: rgb(229, 212, 212);
+        }
+
+        form {
+            /* button'as yra inline tipo todel gaima taikyti text-aline savybe */
+            text-align: center;
+        }
+
+        input {
+            max-width: 768px;
+            width: 100%;
+            margin: 0;
+            border: 1px solid var(--input-border-color);
+            border-radius: 25px;
+            padding: 10px 25px;
+            display: block;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            background-color: var(--input-background-color);
+        }
+
+        button {
+            background-color: var(--button-background-color);
+            color: var(--button-color);
+            border: none;
+            padding: 8px 10px;
+        
+
+        }
+    </style>
+</head>
+<body class="dark">
+    <form>
+        <input type="text">
+        <button>Search</button>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables</title>
+</head>
+<style>
+    html {
+        --primary-color: rgb(247, 114, 6);
+         /* taip aprasomas kintamasis ir jei ji aprasome teviniam elementui, tai ji paveldi visi kiti pop juo esntys elementai */
+    }
+    .box {
+        width: 300px;
+        height: 300px;
+    }
+    .color1 {
+        background-color: var(--primary-color);
+    }
+
+    .color2 {
+        background-color: rgb(121, 199, 19);
+    }
+    .color3 {
+        background-color: rgb(196, 137, 63);
+    }
+
+    p {
+        color: var(--primary-color);
+    }
+
+</style>
+<body>
+    <div class="box color1"></div>
+    <div class="box color2"></div>
+    <div class="box color3"></div>   
+    <div class="box color1"></div>
+    <div class="box color2"></div>
+    <div class="box color3"></div> 
+    <div class="box color1"></div>
+    <div class="box color2"></div>
+    <div class="box color3"></div> 
+    <div class="box color1"></div>
+    <div class="box color2"></div>
+    <div class="box color3"></div> 
+    <div class="box color1"></div>
+    <div class="box color2"></div>
+    <div class="box color3"></div> 
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, ratione.</p>
+</body>
+</html>

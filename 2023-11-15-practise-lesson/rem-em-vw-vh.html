@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rem - Em - Vw - Vh</title>
+    <style>
+        html {
+            /* box-rem dydis isejo 10em*16px*2 (nes 26px)= 260*/
+            font-size: 26px;
+        }
+        body {
+            margin:0;
+        }
+        .box {
+            /* 100vw = 100% ekrano plocio  */
+            width: 100vw;
+            /* 100vh = 100% ekrano aukscio */
+            height: 100vh;
+            background-color: rgb(16, 235, 235);
+        }
+
+        .color2 {
+            background-color: rgb(232, 218, 13);
+        }
+
+        .content-element {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: brown;
+        }
+
+        .modal {
+            background: burlywood;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* dabar isgavom tkia situacija, kai uzima/uzdengia visa tevini elementa, bet narsykles baltos ribos nedengia  */
+            /* width: 100%;
+            height: 100%; */
+            /* o dabar isgavom jog uzima visa ploti narsykles */
+            width: 100vw;
+            height: 100%;
+        }
+
+        .box-rem {
+            /* 1rem = pacio pagrindinio elemento, siuo atveju root, srifto dydziui */
+            /* pagal nutylejima kiekvienoje narsykleje nustatomas (default) yrra 16px, ttodel stiuje html priskyrem font-size 26px */
+            width: 10rem;
+            height: 10rem;
+            background-color: coral;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box color2"></div>
+    <div class="content-element">
+        <div class="modal"></div>
+    </div>
+    <div class="box-rem"></div>
+</body>
+</html>
