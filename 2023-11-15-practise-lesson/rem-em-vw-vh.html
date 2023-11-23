@@ -12,6 +12,8 @@
         }
         body {
             margin:0;
+            /* nesikeicia  box-rem dydis nesikeicia islieka 260px, nes html yra priskita reiksme */
+            font-size: 16px;
         }
         .box {
             /* 100vw = 100% ekrano plocio  */
@@ -47,10 +49,24 @@
 
         .box-rem {
             /* 1rem = pacio pagrindinio elemento, siuo atveju root, srifto dydziui */
-            /* pagal nutylejima kiekvienoje narsykleje nustatomas (default) yrra 16px, ttodel stiuje html priskyrem font-size 26px */
+            /* pagal nutylejima kiekvienoje narsykleje nustatomas (default) yra 16px, todel stiliuje html priskyrem font-size 26px */
+            /* labai patogu pritaikyti mobiliai versijai, nes jei mazinamas sriftas tai mazinasi viskas ir padding ir div'u mobai ir margin  */
             width: 10rem;
             height: 10rem;
             background-color: coral;
+        }
+
+        .box-parent {
+            font-size: 16px;
+        }
+
+        .box-em {
+            /* em matavimo vienetas ziuri i tevini elementa, o rem ziuri i pati pagrindini */
+            /*todel keicians font-size .box-parent keiciasi ir .box-em */
+            width: 10em;
+            height: 10em;
+            background-color: darkblue;
+
         }
 
     </style>
@@ -62,5 +78,9 @@
         <div class="modal"></div>
     </div>
     <div class="box-rem"></div>
+    <div class="box-parent">
+        <div class="box-em"></div>
+
+    </div>
 </body>
 </html>
