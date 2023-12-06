@@ -2,7 +2,7 @@
     /* font-family uzvadinam kaip norim */
     font-family: "CircularSTD";
     /* galima ikelti nuorodas ir kitu formatu kad buti tikriems jog palaikys tas narsykles naujas sriftas */
-    src: url('assets/fonts/circularstd-book-webfont.woff') format('woff');
+    src: url('../fonts/circularstd-book-webfont.woff') format('woff');
     /* po to toki stori reik aprasyti stiliuose */
     font-weight: 300;
 }
@@ -21,6 +21,7 @@
 
 :root {
     --bs-border-radius: 1.5rem;
+    --primary-color:#F85E9F;
 }
 
 body {
@@ -30,6 +31,12 @@ body {
 /* daromas resetas, nes didele nuotruaka lipa per breakpointus, todel daromas sis resetas img */
 img {
     max-width: 100%;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -50,6 +57,21 @@ nav.navbar a {
 nav.navbar li.active a {
     color: #222831;
 
+}
+
+section.home .decoration {
+    position: relative;
+}
+
+section.home .decoration::before {
+    content: "";
+    background: url(../images/deco.png) no-repeat center center;
+    width: 65px;
+    height: 170px;
+    display: block;
+    position: absolute;
+    bottom: 0rem;
+    left: -70px;
 }
 
 .btn {
@@ -75,7 +97,7 @@ nav.navbar li.active a {
 
 .btn-shadow {
     box-shadow: 0 15px 15px 0 #00000012;
-    --bs-btn-color: #F85E9F;
+    --bs-btn-color: var(--primary-color);
     font-size: 14px;
     display: inline-flex;
     gap: 10px;
@@ -97,7 +119,7 @@ nav.navbar li.active a {
 }
 
 .home h2 span {
-    color: #F85E9F;
+    color: var(--primary-color);
 }
 
 .home p {
@@ -140,6 +162,21 @@ nav.navbar li.active a {
     background: url(../icons/14.svg) no-repeat center center;
 }
 
+.section-heading h3{
+    text-transform: uppercase;
+    color: var(--primary-color);
+    font-size: 23px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.section-heading h2{
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 1rem 0 0;
+}
+
 /* vykdyti sita komanda kai bus pasiektas breackpontas reiksme imma is bootstrapo, kad atitiktu, ir prie klases nav.navbar nurodau, jog display:none */
 @media screen and (min-width: 992px) {
     nav.navbar {
@@ -174,7 +211,6 @@ nav.navbar li.active a {
         width: calc(100vw - 280px);
         height: 100vh;
         /* transition: left .5s ease-in-out; */
-
     }
 
     /* filtruojama pagal atributa 'name' */
@@ -192,6 +228,32 @@ nav.navbar li.active a {
 @media screen and (max-width: 768px) {
     section.home h2 {
         font-size: 40px;
-
     }
+
+    section.home .decoration::before {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .p-custom {
+        padding-left: 98px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .section-heading h2 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .section-heading h3 {
+        font-size: 16px;
+    }
+
 }
