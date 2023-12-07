@@ -1,0 +1,1 @@
+console.error('Bloga zinute');
