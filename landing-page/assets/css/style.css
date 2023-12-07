@@ -81,7 +81,6 @@ section.home .decoration::before {
 }
 
 
-
 .btn-primary {
     --bs-btn-color: #EEEEEE;
     --bs-btn-bg: #5D50C6;
@@ -162,7 +161,7 @@ section.home .decoration::before {
     background: url(../icons/14.svg) no-repeat center center;
 }
 
-.section-heading h3{
+.section-heading h3 {
     text-transform: uppercase;
     color: var(--primary-color);
     font-size: 23px;
@@ -170,11 +169,152 @@ section.home .decoration::before {
     letter-spacing: 5px;
 }
 
-.section-heading h2{
+.section-heading h2 {
     font-size: 44px;
     font-weight: 600;
     line-height: 120%;
-    margin: 1rem 0 0;
+
+}
+
+/* nustatome jog paveldetu tevinio boko auksti */
+.service {
+    height: 100%;
+    transition: all .5s ease-in-out;
+    border: 1px solid rgb(25, 24, 27, .1);
+}
+
+.service:hover {
+    box-shadow: 0 0 25px 1px rgba(0, 0, 0, 0.147);
+    border-color: white;
+}
+
+.section h3 {
+    font-weight: 600;
+    font-size: 28px;
+}
+
+section p {
+    color: #1918257d;
+    font-family: Inter;
+    font-size: 18px;
+}
+
+.destination {
+background-color: white;
+box-shadow: 0 0 25px 1px rgba(0, 0, 0, 0.147);
+}
+
+.destination h3 {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.destination .price {
+    font-size: 23px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.destination .location {
+    color: #191825bb;
+    font-family: Inter;
+    font-size: 18px;
+    margin-top: .5rem;
+}
+
+.destination .rating {
+    color: #FF5722;
+    font-family: Inter;
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.destination .rating::after {
+    content: "";
+    background: url(../icons/5.svg) no-repeat center center;
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin-top: -3px;
+}
+
+.arrows {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.arrows a {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(25, 24, 27, .1);
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.arrows svg {
+    fill:#191825;
+    transition: all .5s ease-in-out;
+}
+
+.arrows a:hover {
+    background-color:#5D50C6;
+    border-color: #5D50C6;
+}
+
+.arrows a:hover svg{
+    fill:#EEEEEE;
+}
+
+.travel p {
+    color: #1918256f;
+    font-family: Inter;
+    font-size: 18px;
+    margin: 1.5rem 0 4rem;
+}
+
+.feature {
+    border: 1px solid rgb(25, 24, 27, .1);
+    text-align: center;
+    border-radius: 25px;
+    padding: 2rem 0;
+}
+
+.feature h3 {
+    color:#FF5722;
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0 0 0.7rem;
+}
+
+.feature span {
+    color: #191825;
+    font-family: Inter;
+    font-size: 18px;
+}
+
+.travel .image {
+    background: url(../images/discount.png) no-repeat 70% 0;
+    /* 100prc tevinio aukscio */
+    height: 100%;
+    position: relative;
+}
+
+.travel .image::before{
+    content: "";
+    background-color: #facd4a;
+    display: block;
+    height: 550px;
+    width: 1000%;
+    position: absolute;
+    top: 129px;
+    left: -1000%;
 }
 
 /* vykdyti sita komanda kai bus pasiektas breackpontas reiksme imma is bootstrapo, kad atitiktu, ir prie klases nav.navbar nurodau, jog display:none */
@@ -237,7 +377,11 @@ section.home .decoration::before {
 
 @media screen and (min-width: 1400px) {
     .p-custom {
-        padding-left: 98px;
+        padding-left: 100px;
+    }
+
+    .container-lg {
+        max-width: 1184px;
     }
 }
 
