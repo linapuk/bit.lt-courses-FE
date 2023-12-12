@@ -37,10 +37,13 @@ if (month==='01'){
     console.log('Sausis');
 }
 
+let bond = '\EMRG01\  #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mattips';
+console.log(bond.length);
+
 ////// Variantas su masyvais
-labadiena = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Geguze', 'Birzelis', 'Liepa', 'Rugpjutis', 'Rugsejis', 'Spalis', 'Lapkritis', 'Gruodis'];
-menuo = month - 1;
-console.log(labadiena[menuo]);
+// labadiena = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Geguze', 'Birzelis', 'Liepa', 'Rugpjutis', 'Rugsejis', 'Spalis', 'Lapkritis', 'Gruodis'];
+// menuo = month - 1;
+// console.log(labadiena[menuo]);
 
 
 ////// Variantas su switch
