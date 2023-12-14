@@ -65,6 +65,10 @@ else{
     console.log('kintamajame eilerastis tokio zodzio nneturi');
 }
 
+function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 //random skaiciaus sugeneravimas... (2 parametrai: nuo, iki  [inclusive])
 let skaiciukas = rand(97, 122);
 console.log(skaiciukas);
