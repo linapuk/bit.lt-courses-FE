@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <!-- form action yra skirtas nurodinti kokioje DB talpinti ivestus duomenis -->
+    <!-- <form action="server.vibelink.lt/prideti-skaicius"> -->
+        <!-- <input name="numberOne" type="number" placeholder="Enter first number" id="num1"/> -->
+        <input type="number" placeholder="Enter first number" id="num1"/>
+        <select name="operation" id="operation">
+            <option value="+">+ (sudetis)</option>
+            <option value="-">- (atimtis)</option>
+            <option value="*">* (daugyba)</option>
+            <option value="/">/ (dalyba)</option>
+            <option value="**">x &#696; (kelimas laipsniu)</option>
+        </select>
+        <!-- <input name="numberTwo" type="number" placeholder="Enter second number" id="num2"/> -->
+        <input type="number" placeholder="Enter second number" id="num2"/>
+        <button onclick="executeCalculation()">Calculate</button>
+        <p id="result"></p>
+    </form>
+    <script src="./js/calculator.js"></script>
+</body>
+</html>

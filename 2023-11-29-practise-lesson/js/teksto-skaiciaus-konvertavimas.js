@@ -57,7 +57,7 @@ console.log('suapvalinta reiksme math.floor:' + roundedSkaicius2);
 roundedSkaicius3 = Math.ceil(skaiciusTekstas5);
 console.log('suapvalinta reiksme math.ceil:' + roundedSkaicius3);
 
-// I budas - skaiciaus konvertavimas i string duomeu tipa i nuroodant jog butu atvaizduojami du skaiciai po kablelio:
+// I budas - skaiciaus konvertavimas i string duomeu tipa i nuroodant jog butu atvaizduojami du skaiciai po kablelio ir suapvalina reiksme:
 let konvertuojamasSkaicius = 12.7;
 let valiuta = konvertuojamasSkaicius.toFixed(2);
 console.log(valiuta);
