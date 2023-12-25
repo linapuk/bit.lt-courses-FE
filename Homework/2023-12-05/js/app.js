@@ -175,3 +175,84 @@ for (i = 0; i < arrayF.length; i++){
     }
 }
 console.log("h. rezultatas: " + sumTwoDigit);
+
+// 4. Sukurkite atsitiktinio stringo iš 15 lotyniškų mažųjų raidžių generavimo algoritmą. Pasinaudokite String.fromCharCode(skaicius) funkcija, kad sugeneruoti atsitiktinę raidę.
+console.log("4. Užduotis");
+
+let randomLettersStringe='';
+
+for (let i = 0; i < 15; i++)
+{
+    randomLettersStringe += String.fromCharCode(rand(97,122));
+}
+console.log(randomLettersStringe);
+
+// 5. Sukurti masyvą iš 100 atsitiktinių skaičių. Prieš pridėdami elementą prie masyvo patikrinkite  ar skaičius yra nuo 40 iki 60. Jei taip, jo nepridėkite prie masyvo. Galiausiai masyvas turi turėti 100 elementų.
+console.log("5. Užduotis");
+
+let randomDigits100Araay = [];
+let indeksas100 = 0;
+
+while (indeksas100 < 100)
+{
+    let randomDigits100 = rand(0,100);
+    if (randomDigits100 < 40 || randomDigits100 > 60 )
+    {
+        randomDigits100Araay.push(randomDigits100);
+        indeksas100++
+    }
+}
+console.log(randomDigits100Araay)
+
+// 6. Pasinaudojant document.write() funkcija išveskite lyginius 5 uždavinio masyvo skaičius su spalva - žalia, o nelyginius su spalva - raudona;
+console.log("6. Užduotis");
+
+// let greenEven= document.getElementsByClassName("green");
+// let redOdd= document.getElementsByClassName("red");
+
+greenEven =[];
+redOdd = [];
+
+for (i = 0; i < randomDigits100Araay.length; i++)
+{
+    if (randomDigits100Araay[i] % 2 === 0)
+    {
+        greenEven.push(randomDigits100Araay[i]);
+    }
+    else
+    {
+        redOdd.push(randomDigits100Araay[i]);
+    }
+}
+
+document.write('<p class="green">');
+for (j = 0; j < greenEven.length; j++) {
+    document.write(greenEven[j] + ' ');
+}
+document.write('</p>');
+
+document.write('<p class="red">');
+for (j = 0; j < redOdd.length; j++) {
+    document.write(redOdd[j] + ' ');
+}
+document.write('</p>');
+
+// document.write('<span class="green"> '+greenEven+'</span>'+'<br>');
+// document.write('<span class="red"> '+redOdd+'</span>'+'<br>');
+
+// 7. Sugeneruokite 80 atsitiktinių skaičių nuo 8 iki 32. Apskaičiuokite visų šių skaičių vidurkį.
+console.log("7. Užduotis");
+
+
+let indeksas80 = 0;
+let sum80 = 0;
+
+while (indeksas80 < 80)
+{
+    let randomDigits80 = rand(8,32);
+    sum80 += randomDigits80
+    indeksas80++
+
+}
+console.log(sum80);
+console.log(sum80/80);
