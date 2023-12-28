@@ -31,7 +31,10 @@ for (i = 0; i < 300; i ++)
 console.log(`Didesniu skaiciu nnei 150 masyve yra: ${biggerThan150} `);
 // console.log(nurandomNumbermber.join(" "));
 
+
+
 //Namu darbai  "Uzduoteles operacijoms su masyvais pasikartojimui"-------------------
+// ---------------------NAUJA TEMA - Functions (https://www.w3schools.com/js/js_function_parameters.asp)
 
 function generateArrayOfrandomNumbers(min, max, countOfElement)
 {
@@ -40,20 +43,53 @@ function generateArrayOfrandomNumbers(min, max, countOfElement)
     {
         arr.push(rand(min ,max))
     }
-    return arr
+    return arr;
 }
 
-/* iš f masyvo ištrinkite elementus kurie:
-Yra lyginiai;
-Nelyginiai;
-Dalinasi iš 3;
-Yra lygūs savo indeksui;
-Yra mažesni nei 5 arba didesni nei 8;
-Yra  nuo 2 iki 5;
-kurių suma su sekančiu elementu masyve yra dviženklė (jei reikšmė paskutinė masyve, sekančiu elementu laikykite pirmąjį masyvo elementą)
-kurių suma su sekančiu elementu masyve yra lyginė
-	
-Po kiekvienos filtracijos naujai sugeneruokite masyvą f */
+function getNextElement(arr, index){
+    let nextElement;
+    if (arr.length - 1 === index)
+    {
+        nextElement = arr[0];
+    }
+    else
+    {
+        nextElement = arr[index+1];
+    }
+    return nextElement;
+}
+
+// Default Parameter Values:
+/* function generateArrayOfrandomNumbers(min, max, countOfElement=20)
+{
+    let arr = [];//reik isivesti kintamaji nes negali kartotis pavadinimai kintamuju
+    for (let i = 0; i < countOfElement; i++)
+    {
+        arr.push(rand(min ,max))
+    }
+    return arr
+} 
+Veliau nurodyti tik kitas reiksmes bet ne default:
+array = generateArrayOfrandomNumbers(0, 10;
+console.log(array)
+*/
+
+// Kompozicionavimas - galima pritaikyti kai norime grazinti tik viena primityvu parametra-skaiciuka-elementa, tada galima nebenaudoti kintamojo:
+// function getNextElement(arr, index){
+//     if (arr.length - 1 === index)return arr[0];
+//     else return arr[index+1];
+// }
+
+/* Iš f masyvo ištrinkite elementus kurie:
+a. Yra lyginiai;
+b. Nelyginiai;
+c. Dalinasi iš 3;
+d. Yra lygūs savo indeksui;
+e. Yra mažesni nei 5 arba didesni nei 8;
+f. Yra  nuo 2 iki 5;
+g. kurių suma su sekančiu elementu masyve yra dviženklė (jei reikšmė paskutinė masyve, sekančiu elementu laikykite pirmąjį masyvo elementą)
+h. kurių suma su sekančiu elementu masyve yra lyginė
+	Po kiekvienos filtracijos naujai sugeneruokite masyvą f */
 
 let array = generateArrayOfrandomNumbers(0, 10, 20);
 // console.log(generateArrayOfrandomNumbers(0, 10, 20)) galimas ir toks variantas
@@ -119,7 +155,7 @@ console.log(array)
 console.log("e uzduotis")
 
 array = generateArrayOfrandomNumbers(0, 10, 20);
-console.log(array)
+console.log(array);
 
 for (let i = 0; i < array.length; i++ ){
     if (array[i] < 5 || array[i] > 8 )
@@ -143,16 +179,16 @@ for (let i = 0; i < array.length; i++ ){
         i--;
     }
 }
-console.log(array)
+console.log(array);
 
 // g. kurių suma su sekančiu elementu masyve yra dviženklė (jei reikšmė paskutinė masyve, sekančiu elementu laikykite pirmąjį masyvo elementą)
 console.log("g uzduotis")
 
 array = generateArrayOfrandomNumbers(0, 10, 20);
-console.log(array)
+console.log(array);
 
 for (let i = 0; i < array.length; i++ ){
-    let nextElement;
+/*     let nextElement;
     // patikrinam ar elementas paskutinis, jei taip sekanti elementa eimame pirmaji masyvo elementa. Jei ne - sekanti elementa imame.
     if (array.length - 1 === i)
     {
@@ -160,8 +196,10 @@ for (let i = 0; i < array.length; i++ ){
     }
     else
     {
-        nextElement = array[i+1]
-    }
+        nextElement = array[i+1];
+    } */
+    let nextElement = getNextElement(array, i);
+
     if (array[i]+ nextElement >= 10  )
     {
         array.splice(i, 1);
@@ -174,10 +212,10 @@ console.log(array)
 console.log("h uzduotis")
 
 array = generateArrayOfrandomNumbers(0, 10, 20);
-console.log(array)
+console.log(array);
 
 for (let i = 0; i < array.length; i++ ){
-    let nextElement;
+/*     let nextElement;
     // patikrinam ar elementas paskutinis, jei taip sekanti elementa eimame pirmaji masyvo elementa. Jei ne - sekanti elementa imame.
     if (array.length - 1 === i)
     {
@@ -186,7 +224,9 @@ for (let i = 0; i < array.length; i++ ){
     else
     {
         nextElement = array[i+1]
-    }
+    } */
+    let nextElement = getNextElement(array, i);
+
     if ((array[i]+ nextElement) % 2 === 0)
     {
         array.splice(i, 1);
