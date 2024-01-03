@@ -6,7 +6,7 @@ while(i <= 5)
     i++;//prideda 1
 }
 
-console.log("Ciklals WHILE ir masyvas")
+console.log("Ciklas WHILE ir masyvas")
 let zmones = ["petras", "Jonas", "Justinas", "Jurate", "Kastytis", "Tomas"];
 
 //Norim Petras atvaizduoti didziosiomis raidemis, tai be ciklo atrodytu taip:
