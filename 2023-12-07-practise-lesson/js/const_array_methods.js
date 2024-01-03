@@ -242,10 +242,10 @@ console.log(modifikuotasMasyvas);
 //---------------------------------------------- REDUCE metodas -----------------------------------------------------
 //grazina rezultata operacijos su visais elementais
 
-let masyvas3 = [6, 2, 9, 5, 12];
-console.log("Rezultatas: masyvas3");
+let masyvas3 = [7, 2, 9, 5, 12];
+// console.log("Rezultatas: masyvas3");
 console.log(masyvas3);
-let suma = masyvas3.reduce((total, value) => total + value);
+// let suma = masyvas3.reduce((total, value) => total + value);
 suma = masyvas3.reduce((total, value) => {
     console.log(`total: ${total}, reiksme: ${value}`);
     return total + value;
@@ -253,12 +253,12 @@ suma = masyvas3.reduce((total, value) => {
 // vidurkio apskaiciavimas
 console.log(suma/masyvas3.length);
 
-let suma2 = masyvas3.reduce((total=0, value) => {
-    console.log(`total: ${total}, reiksme: ${value}`);
-    return total - value;
-});
+// let suma2 = masyvas3.reduce((total2, value2) => {
+    // console.log(`total: ${total2}, reiksme: ${value2}`);
+    // return total2 - value2;
+// });
 
-console.log(suma2);
+// console.log(suma2);
 //total yra suma ir ji taip atlieka veiksmus:
 // pirma iteracija 0 +6 = 6???
 // antra iteracija 6 + 2 = 8
@@ -270,7 +270,7 @@ console.log(suma2);
 // pirma iteracija 0 - 6 = -6????
 // antra iteracija -6 - 2 = -8
 // trecia iteracija -8 - 9 = -17
-// ketvirta iteracija -17 + 5 = 22
+// ketvirta iteracija -17 - 5 = -22
 // penkta iteracija 22 + 12 = 32
 
 //---------------------------------------------- SOME metodas -----------------------------------------------------
@@ -297,6 +297,7 @@ console.log(masyvas4);
 // klausimas Gedui kodel nesuveike?
 
 masyvas4.sort((a, b)=> {
+    console.log(`a reiksme: ${a}, b reiksme ${b}`);
     return a-b;
     // jei grazinamos reiksmes:
     // > 0 sort a after b, e.g. [b, a];
@@ -323,3 +324,18 @@ masyvas5.sort((a, b)=> {
     return b-a;
 });
 console.log(masyvas5);
+
+//---------------------------------------------- FIND metodas -----------------------------------------------------
+// find - Gražins primą elementą kuris praėjo testą.
+masyvas4 = [6, 2, 9, 5, 12];
+
+const findArray = masyvas4.find((num) => num > 8);
+console.log("Rezultatas: findArray");
+console.log(findArray);
+
+//---------------------------------------------- findIndex metodas -----------------------------------------------------
+// findIndex - Gražins pirmo elemento indeksą masyve kuris praeis testą.
+const findIndexArray = masyvas4.findIndex((num) => num > 8);
+console.log("Rezultatas: findIndexArray");
+console.log(findIndexArray);
+
