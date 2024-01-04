@@ -75,3 +75,48 @@ console.log(numbersArray);
 
 //6. Patikrinti ar skaičius 68 egzistuoja masyve. Ar egzistuoja skaičius - praneškite pasinaudodami console.log()
 console.log("6 užduotis:");
+if(numbersArray.includes(68)){
+    console.log("68 yra");
+}
+else{
+    console.log("68 nera");
+}
+
+//7. Išrūšiuoti masyvą didėjančia tvarka;
+console.log("7 užduotis:");
+numbersArray.sort((num1, num2)=>{
+    return num1 - num2;
+});
+console.log(numbersArray);
+
+//8. Išrūšiuoti masyvą mažėjančia tvarka;
+console.log("8 užduotis:");
+numbersArray.reverse();
+console.log(numbersArray);
+
+//9. Atrasti didžiausią bei mažiausią reikšmes skaičių masyve.
+console.log("9 užduotis:");
+
+// galima isspresti keliais budais:
+// Budas I:
+/* let max=-1000, min = 1000;
+for(let value of numbersArray){
+    if(value > max){
+        max = value;
+    }
+    if(value < min)
+    {
+        min = value;
+    }
+} 
+console.log(`minimali masyvo reiksme: ${min}, maksimali reiksme: ${max}`);
+*/
+
+// Budas II:
+let min = Math.min(...numbersArray)//negallim paduoti kaipi masyvo, reiksmes reiks isspredinti, kadangi simtas parametru tures buti paduodama tai 3 taskiukai
+let max = Math.max(...numbersArray)
+console.log(`minimali masyvo reiksme: ${min}, maksimali reiksme: ${max}`);
+
+
+//10. Apskaičiuoti visų skaičių vidurkį;
+console.log("10 užduotis:");
