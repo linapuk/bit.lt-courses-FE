@@ -1,6 +1,6 @@
 /* 2023-12-11
 Darbas su masyvais (2)
-1. Sukurti funkciją, kuri generuoja x kiekį atsitiktinių skaičiu nuo min iki max reikšmės
+1. Sukurti funkciją, kuri generuoja x kiekį atsitiktinių skaičiu nuo min iki max reikšmės (A-65, Z-90)
 2. Sukurti masyvą iš 100 elementų, sudarytą iš String'ų, kurių ilgis yra 4 simboliai;
 3. Išrūšiuoti String'ų masyvą didėjančia tvarka;
 4. Išrūšiuoti tą patį masyvą mažėjančia tvarka;
@@ -25,3 +25,53 @@ Darbas su masyvais (2)
 
 //1. Sukurti funkciją, kuri generuoja x kiekį atsitiktinių skaičiu nuo min iki max reikšmės.
 console.log("1 užduotis:");
+
+function rand(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const generateRandomNumberArray = (length, min, max) => {
+    const arr = [];
+    for(let i = 0; i < length; i++){
+        arr.push(rand(min,max))
+    }
+    return arr;
+}
+
+//2. Sukurti masyvą iš 100 elementų, sudarytą iš String'ų, kurių ilgis yra 4 simboliai;
+console.log("2 užduotis:");
+
+const generateString = (length) => {
+    let str = '';
+    for (let i = 0; i < length; i++){
+        str += String.fromCharCode(rand(65, 90));
+    }
+    return str;
+}
+
+const stringgArray = [];
+for(let i=0; i < 100; i++){
+    stringgArray.push(generateString(4))
+}
+console.log(stringgArray);
+
+//3. Išrūšiuoti String'ų masyvą didėjančia tvarka;
+console.log("3 užduotis:");
+
+stringgArray.sort();
+console.log(stringgArray);
+
+//4. Išrūšiuoti tą patį masyvą mažėjančia tvarka;
+console.log("4 užduotis:");
+
+stringgArray.reverse();
+console.log(stringgArray);
+
+//5. Sukurti masyvą iš 100 elementų, sudarytą iš skaičių nuo -100 iki 200;
+console.log("5 užduotis:");
+
+const numbersArray = generateRandomNumberArray(100, -100, 200)
+console.log(numbersArray);
+
+//6. Patikrinti ar skaičius 68 egzistuoja masyve. Ar egzistuoja skaičius - praneškite pasinaudodami console.log()
+console.log("6 užduotis:");
