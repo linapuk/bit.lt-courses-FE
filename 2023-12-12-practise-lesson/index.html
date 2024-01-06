@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        td {
+            text-align: center;
+        }
+        .space-right {
+            margin-right: 1rem;
+        }
+        form div {
+            width: 27%;
+        }
+        div label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: .5rem;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Nationality</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John</td>
+                <td>Doe</td>
+                <td>36</td>
+                <td>British</td>
+            </tr>
+        </tbody>
+    </table>
+    <form>
+        <div>
+            <label>
+                <span class="space-right">First Name</span>
+                <input 
+                    type="text" 
+                    placeholder="First Name" 
+                    id="firstNameInput"/>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="space-right">Last Name</span>
+                <input 
+                    type="text" 
+                    placeholder="Last Name"
+                    id="lastNameInput"/>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="space-right">Age</span>
+                <input 
+                    type="text" 
+                    placeholder="Age"
+                    id="ageInput"/>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span class="space-right">Nationality</span>
+                <input 
+                    type="text" 
+                    placeholder="Nationality"
+                    id="nationalityInput"/>
+            </label>
+        </div>
+    </form>
+    <div>
+        <!-- Mygtuko funkcionalumas pasinaudojant elemento JS'e -->
+        <!-- Buttonas iskeltas is formos nes neveikia JS (kazka minejo apie tai jog reik serverrio ) -->
+        <button id="addButton">Add</button>
+    </div>
+    <h2>Delete person</h2>
+    <input type="number" placeholder="numeriukas"/>
+    <button>Delete</button>
+    <!-- <script src="js/objects.js"></script> -->
+    <script src="js/dynamicContent.js"></script>
+</body>
+</html>
+
+<!-- ND person salinimas pagal numeriuka, jei numeriuko nera parodyti pranesima  -->
