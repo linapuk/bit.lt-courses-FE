@@ -120,3 +120,8 @@ console.log(`minimali masyvo reiksme: ${min}, maksimali reiksme: ${max}`);
 
 //10. Apskaičiuoti visų skaičių vidurkį;
 console.log("10 užduotis:");
+let sumaNumbersArray = numbersArray.reduce((total, value) => {
+    return total + value;
+});
+let vidurkisNumbersArray = sumaNumbersArray/numbersArray.length;
+console.log(`vidurkis: ${vidurkisNumbersArray}`);
