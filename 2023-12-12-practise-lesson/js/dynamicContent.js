@@ -19,6 +19,12 @@ buttonElement.addEventListener('click', ( )=>{
 
     people.push(person);
     generateTableContent(people);
+
+    //ivestos reiksmes pasalinimas
+    document.getElementById('firstNameInput').value = '';
+    document.getElementById('lastNameInput').value='';
+    document.getElementById('ageInput').value='';
+    document.getElementById('nationalityInput').value='';
 });
 
 
@@ -49,3 +55,30 @@ function generateTableContent(people)
     const tbody = document.querySelector('table tbody');
     tbody.innerHTML = dynamicHTMl;
 }
+
+const deleteButtonElement = document.querySelector("#removeButton");
+
+deleteButtonElement.addEventListener('click', () => {
+    let deletetNumeration = parseInt(document.querySelector("#num").value); 
+    let deleteResultElement = document.querySelector("#deleteResult");
+    deleteResultElement.innerText = "";
+    if (deletetNumeration <= 0){
+        deleteResultElement.innerText = "Operacija negali buti atlikta, iveskite didesni skaiciu nei 0.";
+        return;
+    }
+    
+    
+    for(let person of people){
+        if (deletetNumeration === person.number){
+            console.log(people);
+            people.splice(deletetNumeration-1);
+            // console.log(people);
+            generateTableContent(people);
+            return;
+        }
+        else{
+            
+        }
+    }
+    
+})
