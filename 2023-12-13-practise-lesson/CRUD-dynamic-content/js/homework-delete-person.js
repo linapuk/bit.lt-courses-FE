@@ -14,7 +14,7 @@ const removeElementInput=document.querySelector("#num");
 //Button elemeto gavimas:
 // const buttonElement = document.getElementById('addButton);
 // const buttonElement = document.querySelectorAll('button');
-const buttonElement = document.querySelector("#addButton");
+ 
 
 //--------------Validacijos-----------------------
 function validateName (name)
