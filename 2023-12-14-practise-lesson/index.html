@@ -208,22 +208,28 @@
             let elementIndex = products.findIndex((value)=>value.id === id);
             const product = products[elementIndex];
             // console.log(product);
+
+            //inputu uzpildymas duomenimis
             titleInputElement.value = product.title;
             priceInputElement.value = product.price;
             stockInputElement.value = product.stock;
             brandInputElement.value = product.brand;
             categoryInputElement.value = product.category;
+
             //uzsetinamas editinimo state
-            editMode = true;
+            editMode = true;//jo niekur nepanaudojam, destytojas sako, jog gera praktika tokki tureti
+            //kiti update veiksmai
             submitButtonElement.innerText = "Update";
             submitButtonElement.classList.add('btn-secondary');//pakeiciama klase tam kad pakeist spalva btn;
-            submitButtonElement.classList.remove('btn-primary');
-            currentProduct = elementIndex;
+            submitButtonElement.classList.remove('btn-primary');//pasalinam, kad nesipjautu dvi spalvos
+            currentProduct = elementIndex;//nustatome kokia vieta redaguuojamo rodukto masyve
             submitButtonElement.onclick = updateProduct;
          }
 
          const updateProduct = (event) => {
+            //page reload prevencija
             event.preventDefault();
+            //pagal currentProduct indeksa, gauta is atnaujinimo rezimo funkcijos, pakeiciame reiksmes i naujas,, gautas i inputu.
             products[currentProduct].title = titleInputElement.value;
             products[currentProduct].price = priceInputElement.value;
             products[currentProduct].stock = stockInputElement.value;
@@ -232,7 +238,7 @@
             getTableContents();
             //atstatomas pradinis state
             editMode = false;
-            currentProduct = undefined;
+            currentProduct = undefined;//nenorima kad uzsiliktu pries tai priskirta produktui indeksas
             submitButtonElement.onclick = createNewRecord;
             submitButtonElement.innerText = "Submit";
             submitButtonElement.classList.remove('btn-secondary');

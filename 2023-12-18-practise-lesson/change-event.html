@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            padding: .5rem 1.25rem;
+            font-size: small;
+            border-radius: 5px;
+        }   
+    </style>
+</head>
+<body>
+    <input 
+    type="text" 
+    id="value"
+    placeholder="Iveskite reiksme 1"
+    />
+    <p></p>
+    <input 
+    type="text" 
+    id="value2"
+    placeholder="Iveskite reiksme 2"
+    />
+    <p></p>
+    <input 
+    type="text" 
+    id="value3"
+    placeholder="Iveskite reiksme 3"
+    />
+    <p id="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam hic itaque assumenda magnam earum soluta nemo fuga, voluptates ab quaerat sequi rem, aut, beatae ullam quam perferendis ipsam nostrum esse. Soluta architecto earum enim tempora vel voluptatibus delectus hic deserunt dicta, praesentium culpa sunt, eaque quasi alias quisquam atque dolorem.
+    </p>
+    <script>
+        //Script'as input 1 Event'as CHANGE
+        const inputElementai = document.querySelector('#value');
+        // Galimi du budai kaip priskirti 'change' eventa:
+        // Budas 1. (evento pavadinimas, funkcija kas turi ivykti kai eventas ivyksta):
+        inputElementai.addEventListener('change', (event) => {
+            console.log("Pildymas baigtas 1");
+            console.log(event);
+        })
+        // Budas 2:
+        // inputElementai.onchange=(event)=>{}
+
+
+        //Script'as input 2 Event'as FOCUS
+        const inputElementai2 = document.querySelector('#value2');
+        // Galimi du budai kaip priskirti 'change' eventa:
+        // Budas 1. (evento pavadinimas, funkcija kas turi ivykti kai eventas ivyksta):
+        inputElementai2.addEventListener('focus', (event) => {
+            console.log("Laukelis aktyvuotas 2");
+            console.log(event);
+        })
+
+        const inputElementai3 = document.querySelector('#value3');
+        // Galimi du budai kaip priskirti 'change' eventa:
+        // Budas 1. (evento pavadinimas, funkcija kas turi ivykti kai eventas ivyksta):
+        inputElementai3.addEventListener('focusout', (event) => {
+            console.log("Laukelis aktyvuotas 3");
+            console.log(event);
+        })
+        // Event'as LOAD - jis yra uzmetamas ant body elemento, body.addEventListene(eventas, atsitiks anonimine funkcija)
+        const body = document.querySelector('body')
+        body.addEventListener('load', ()=>{
+        console.log("Puslapis uzsikrove");
+        })
+
+        // Hoverio manipuliacijos MOUSEENTER MOUSELEAAVE
+        const paragraphElement = document.querySelector('#paragraph');
+        paragraphElement.addEventListener('mouseenter',() =>{
+            console.log('Pelyte buvo uzvesta ant paragrafo')
+            paragraphElement.style.color='red';
+        })
+        paragraphElement.addEventListener('mouseleave',() =>{
+            console.log('Pelyte buvo nuvesta nuo paragrafo')
+            paragraphElement.style.color='black';
+        })
+
+
+    </script>
+</body>
+</html>
