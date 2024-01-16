@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- boostrap nueme nes turi modal klase, siaip galejo persivadinti kitaip ir nenaikinti bootstrapo -->
+  <!-- <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+    />
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+    ></script>  -->
+    <title>Document</title>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+        }
+        .modal-background{
+            /* view  per width - 100proc plocio per puslapi */
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+        }
+        .modal{
+            background-color: white;
+            width: 50%;
+            height: 50%;
+            padding: 1.5rem;
+        }
+        .half-width {
+            background-color: white;
+            width: 50%;
+            margin: auto auto;
+            border: 0;
+            padding: 1.5rem;
+        }
+        .half-width::backdrop{
+            background: linear-gradient(45deg, green, blue);
+            opacity: .5;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal-background">
+        <div class="modal">
+            <h3>Very interesting article</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quasi aliquam tempora explicabo officiis dolorem omnis laudantium natus expedita possimus aspernatur quibusdam consequuntur, nostrum incidunt animi dolorum reiciendis fugit magni error sunt autem dolor hic veniam inventore. Dolorum consectetur maxime hic ducimus officiis illum dolore distinctio error aliquam modi non cumque quaerat ut quae, quas, molestiae fugit. Unde blanditiis et tempore, cupiditate reiciendis eveniet, corporis magni nostrum inventore, quo ab. Cumque molestias aut consequuntur ratione laudantium quibusdam natus voluptatum, iste omnis numquam praesentium modi est reiciendis, minus eum! Enim reprehenderit placeat quas architecto saepe dolore officia odit velit illum maiores?</p>
+            <hr />
+            <div class="buttons">
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+    <h3>Title</h3>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto eius laudantium vero ducimus voluptas perspiciatis, eum itaque consectetur dolorum praesentium, est, quis dignissimos dolore amet labore asperiores magni. Fuga ut quidem rem cupiditate, numquam ipsum! Aperiam aliquid sunt illo magnam eius a aspernatur assumenda quis eos doloremque, reiciendis alias ipsam.
+    </p>
+    <hr />
+    <h3>Title</h3>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto eius laudantium vero ducimus voluptas perspiciatis, eum itaque consectetur dolorum praesentium, est, quis dignissimos dolore amet labore asperiores magni. Fuga ut quidem rem cupiditate, numquam ipsum! Aperiam aliquid sunt illo magnam eius a aspernatur assumenda quis eos doloremque, reiciendis alias ipsam.
+    </p>
+    <button onclick="openModal()">Open modal</button>
+    <hr />
+    <h3>Title</h3>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto eius laudantium vero ducimus voluptas perspiciatis, eum itaque consectetur dolorum praesentium, est, quis dignissimos dolore amet labore asperiores magni. Fuga ut quidem rem cupiditate, numquam ipsum! Aperiam aliquid sunt illo magnam eius a aspernatur assumenda quis eos doloremque, reiciendis alias ipsam.
+    </p>
+    <hr />
+    <hr />
+    <h3>Title</h3>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto eius laudantium vero ducimus voluptas perspiciatis, eum itaque consectetur dolorum praesentium, est, quis dignissimos dolore amet labore asperiores magni. Fuga ut quidem rem cupiditate, numquam ipsum! Aperiam aliquid sunt illo magnam eius a aspernatur assumenda quis eos doloremque, reiciendis alias ipsam.
+    </p>
+    <button onclick="modalDialog.showModal()">Open modal</button>
+    <!-- gali tureti kelias variacijas modalDialog.show() ir modalDialog.showModal()-->
+    <hr />
+    <dialog class="half-width">
+        <!-- <dialog open - pasirodo dialogo langas> -->
+        <h3>Very interesting article with HTML dialog tag</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quasi aliquam tempora explicabo officiis dolorem omnis laudantium natus expedita possimus aspernatur quibusdam consequuntur, nostrum incidunt animi dolorum reiciendis fugit magni error sunt autem dolor hic veniam inventore. Dolorum consectetur maxime hic ducimus officiis illum dolore distinctio error aliquam modi non cumque quaerat ut quae, quas, molestiae fugit. Unde blanditiis et tempore, cupiditate reiciendis eveniet, corporis magni nostrum inventore, quo ab. Cumque molestias aut consequuntur ratione laudantium quibusdam natus voluptatum, iste omnis numquam praesentium modi est reiciendis, minus eum! Enim reprehenderit placeat quas architecto saepe dolore officia odit velit illum maiores?</p>
+        <hr />
+        <div class="buttons">
+            <button onclick="modalDialog.close()">Close</button>
+        </div>
+    </div>
+    </dialog>
+
+</div>
+<script>
+    // 1. modalinio lango valdymas
+    const modalBackground = document.querySelector(".modal-background");
+    const modal = document.querySelector(".modal");
+    function openModal()
+    {
+        modalBackground.style.visibility = "visible";
+    }
+    function closeModal()
+    {
+        modalBackground.style.visibility = "hidden";
+    }
+    modalBackground.onclick = (event) => {
+        event.stopPropagation();
+        console.log("Clicked on modal background")
+        // closeModal();
+    }
+    modal.onclick = () => {
+        console.log("Clicked on modal")
+    }
+
+    // 2. modalinio lango valdymas su <dialog>
+    const modalDialog = document.querySelector("dialog");
+    // modalDialog.show();// sis metodas iskviecia modal langa ir nereikia aprasineti atskkyrrai funkciju
+    // console.log(modalDialog)
+
+</script>
+</body>
+</html>
