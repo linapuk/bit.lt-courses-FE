@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="row mt-5">
+                <div class="col-4">
+                    <!-- for prisirisa label prie laukelio, paclickinus ant label pasizymi input'as -->
+                    <label for="title">Pavadinimas</label>
+                    <input 
+                        type="text"
+                        id="title"
+                        name="title"
+                        class="form-control"
+                    />
+                </div>
+                <div class="col-4">
+                    <label for="price">Kaina</label>
+                    <input 
+                        type="text"
+                        id="price"
+                        name="price"
+                        class="form-control"
+                    />
+                </div>
+                <div class="col-4">
+                    <label for="title">Kiekis</label>
+                    <input 
+                        type="text"
+                        id="stock"
+                        name="stock"
+                        class="form-control"
+                    />
+                </div>
+                <div class="col-4 mt-2">
+                    <label for="brand">Prekinis ženklas</label>
+                    <input 
+                        type="text"
+                        id="brand"
+                        name="brand"
+                        class="form-control"
+                    />
+                </div>
+                <div class="col-4 mt-2">
+                    <label for="category">Kategorija</label>
+                    <select id="category" name="category" class="form-select">
+                        <option>smartphones</option>
+                        <option>laptops</option>
+                        <option>fragrances</option>
+                        <option>skincare</option>
+                        <option>groceries</option>
+                        <option>home-decoration</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label for="imageURL">Nuotrauka</label>
+                    <input 
+                        type="text"
+                        id="imageURL"
+                        name="imageURL"
+                        class="form-control"
+                    />
+                </div>
+                <div class="col-4">
+                    <label for="discount">Nuolaida</label>
+                    <input 
+                        type="number"
+                        min="0"
+                        max="100"
+                        value="0"
+                        id="discount"
+                        name="discount"
+                        class="form-control"
+                    />
+                    <!-- // min, max - nurodoma skaitines reiksmes mi ir max reiksmes, t.y. nuolaidos
+                    // value - yra pradine reiksme -->
+                </div>
+                <div class="col-4">
+                    <label for="rating">Ivertinimas</label>
+                    <input 
+                        type="number"
+                        min="0"
+                        max="5"
+                        value="0"
+                        id="rating"
+                        name="rating"
+                        class="form-control"
+                    />
+                </div>
+                <div class="col-4">
+                    <label for="description">Produkto aprasymas</label>
+                    <textarea                         
+                    id="description"
+                    name="description"
+                    class="form-control"
+                    ></textarea>
+                </div>
+                <div class="col-4 mt-2">
+                    <button class="btn btn-primary mt-4" id="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Pavadinimas</th>
+                    <th>Kaina</th>
+                    <th>Kiekis</th>
+                    <th>Prekinis ženklas</th>
+                    <th>Kategorija</th>
+                    <th>Redaguoti</th>
+                    <th>Šalinti</th>
+                </tr>
+            </thead>
+            <tbody id="dynamic-data">
+                <!-- Destytojas pasalino sia eilute, nes ja perraso suimportuoti duiomenys. -->
+                <!-- <tr>
+                    <td>1</td>
+                    <td>Apple product</td>
+                    <td>1.50</td>
+                    <td>1</td>
+                    <td>Apple</td>
+                    <td>Maistas</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <dialog 
+
+    id="productInfo"
+    style="width: 70%;"
+    class="border border-secondary-subtle rounded-1">
+        <div style="width: 70%; margin: 0 auto;">
+            <img class="card mb-3" style="max-width: 70%;"
+            src="https://images.pexels.com/photos/887751/pexels-photo-887751.jpeg" 
+            alt="Product foto"
+            />
+            <div class="product-details">
+                <div class="row  mb-2">
+                    <span class="col-3 fw-bold">Nuolaida</span>
+                    <span class="col-3">-10%</span>
+                <div class="row  mb-2">
+                    <span class="col-3 fw-bold"">Ivertinimas</span>
+                    <span class="col-3">4.23</span>
+                </div>
+                <div class="row  mb-2">
+                    <span class="col-3 fw-bold"">Aprasymas</span>
+                    <span class="col-9">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga enim provident voluptas quas laborum quidem eos quasi ipsum mollitia dolor, eligendi, vero aliquid cumque hic et dolorum dicta veritatis necessitatibus culpa architecto eius in libero officiis odio. Est, quo quis!</span>
+                </div>
+            </div>
+         </div>
+    </dialog>
+    <script>
+        //CRUD: 
+        //Create - Sukurti įrašą
+        //Read - peržiūrėti įrašą
+        //Update - atnaujinti įrašą
+        //Delete - ištrinti įrašą
+        console.log(localStorage.getItem('products'));
+        if(!localStorage.getItem('products')){
+            console.log("pirmas kartas");// bus parodomas tik karta, kai local storace su raktu products nebus irasu
+            localStorage.setItem('products','[]');//turi buti stringas todel tarp kabuciu, 'products'-yra rakto pavadinimas
+        }
+        const products = JSON.parse(localStorage.getItem('products')); //pirmas zingsnis apjungiant buvo products.js obekto pasalinimas, ir siuo pridedamas tas pats product masyvas
+        // console.log(typeof products);//matoma jog stringas, reik pasiversti i masyva
+        
+        let currentId = 1;
+
+        // ------------------------------------- Read ---------------------------
+        let editMode = false;//elemntas reikalingas update 
+        let currentProduct;//elemntas reikalingas update 
+        const dynamicDataElement = document.getElementById('dynamic-data'),
+            titleInputElement = document.getElementById('title'),
+            priceInputElement = document.getElementById('price'),
+            stockInputElement = document.getElementById('stock'),
+            brandInputElement = document.getElementById('brand'),
+            categoryInputElement = document.getElementById('category'),
+            submitButtonElement = document.getElementById('submit'),
+            modalElement = document.getElementById('productInfo'),
+            photoElement = document.getElementById('imageURL'),
+            discountElement = document.getElementById('discount'),
+            ratingElement = document.getElementById('rating'),
+            descriptionElement = document.getElementById('description');
+
+        /* 
+        //Šitas būdas - suveikia, nes aprašomos funkcijos vieta kode yra nesvarbi.
+        generateTableContent
+        function generateTableContent()
+        {
+
+        }
+        //Šitas būdas - neveikia, nes arrow funkcija aprašyta žemiau nei jos iškvietimas. Šitas būdas naudojamas dažniausiai iškviešiant anonimines funkcijas, funkcijas paduodant kaip parametrą, call-back, rekursija.
+        getTableContents()
+        const getTableContents = () => {
+
+        }
+         */
+        
+        const getTableContents = () => {
+            let dynamicHTML = ``;
+            
+            //Budas standartinis kreipiantis i cikla:
+            // for(let i = 0; i < product.length; i++){
+            //     product[i].id
+            // }
+            //Budas, kai naudojamas for in:
+            // for(const product in products)
+            // {
+            //     dynamicHTML+=`<tr>
+            //         <td>${products[product].id}</td>
+            //         <td>${products[product].title}</td>
+            //         ...
+
+            //Budas, kai naudojamas for of:
+            for(const product of products)
+            {
+                //pridedamas prie ID onclick, kad iskviestu funkcija atvaizduoti modal langa
+                dynamicHTML+=`<tr>
+                    <td onclick="showModal(${product.id})">${product.id}</td> 
+                    <td>${product.title}</td>
+                    <td>${product.price}</td>
+                    <td>${product.stock}</td>
+                    <td>${product.brand}</td>
+                    <td>${product.category}</td>
+                    <td class="text-center">
+                        <button 
+                        class="btn btn-secondary" 
+                        onclick="setEdit(${product.id})"><i class="bi bi-pencil-fill"></i>
+                        </button>
+                    </td>
+                    <td class="text-center">
+                        <button 
+                        class="btn btn-danger" 
+                        onclick="deleteProduct(${product.id})"><i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>`;
+            }
+            dynamicDataElement.innerHTML = dynamicHTML;
+            // dynamicDataElement.innerHTML += dynamicHTML; jei toks bus tada atsivaizduoas ir eilute sukuta HTML kode
+        };
+        getTableContents(products);
+
+        const showModal = (id) => {
+            let elementIndex = products.findIndex((value) => value.id === id);
+            const product = products[elementIndex];//si eilute reikalinga tam kad gauti produkta ant kuriio ID buvo paspausta
+            modalElement.showModal();
+        }
+
+        // Self-Invoking Functions - automatinis funkcijos iškvietimas, apskliaudus funkcijair uz jos padejus skiausteleius.
+        // sitos nebereikia naudoti, nes auksciau atliktas automatinis funkcijjos iskvietimas.P.S. atsirado klaida ir destytojas panaikino automatini funkcijos iskvietima.
+        // getTableContents();
+
+        // ------------------------------------- Create -----------------------------
+        //gera praktika apsirašyti per const kintamaji, kad tik karta nusiskaitytu, todel visi inputElementai aprasyti auksciau.
+        const createNewRecord = (event) => {
+            //prevencija nuo iprastinio elgesio , dazniausiai panaudojama su formomis (reloadinamas puslapis, duomenys nusiunciami)
+            event.preventDefault();//sukuriu eventa, tam kad spaudziant ant submito jis veiktu, nes kai submitas yra formoje jis reloadina puslapi.
+            // console.log(event);//grazina detales apie eventa,eventas yra objetas.
+            //kompozicinis variantas
+            const newProduct = {
+                id: currentId,
+                title: titleInputElement.value,
+                description: descriptionElement.value,
+                price: +priceInputElement.value,
+                discountPercentage: +discountElement.value,
+                rating: +ratingElement.value,
+                stock: +stockInputElement.value,
+                brand: brandInputElement.value,
+                category: categoryInputElement.value,
+                thumbnail: photoElement.value, 
+            };
+            currentId++ //bus kuriamas sis parametras ir pripliusuojama
+            products.push(newProduct);
+            localStorage.setItem('products', JSON.stringify(products));
+            getTableContents(products);
+        }
+        submitButtonElement.onclick = createNewRecord;//cia funkcija paduodama kaip kintamasis
+
+         // ------------------------------------- Delete -----------------------------
+         const deleteProduct = (id) => {
+            let elementIndex = products.findIndex(value=>value.id ===id);//produkto susiradimas
+            // console.log(elementIndex)
+            products.splice(elementIndex,1);
+            getTableContents(); //sitos funkcijos reikia, kad istrintas irasas isnyktu issaraso, butu is naujo pergeneruojamas listas
+            localStorage.setItem('products', JSON.stringify(products));
+         }
+
+         // ------------------------------------- Update --------------------------------
+         const setEdit = (id) => {
+            let elementIndex = products.findIndex((value)=>value.id === id);
+            const product = products[elementIndex];
+            // console.log(product);
+
+            //inputu uzpildymas duomenimis
+            titleInputElement.value = product.title;
+            priceInputElement.value = product.price;
+            stockInputElement.value = product.stock;
+            brandInputElement.value = product.brand;
+            categoryInputElement.value = product.category;
+
+            //uzsetinamas editinimo state
+            editMode = true;//jo niekur nepanaudojam, destytojas sako, jog gera praktika tokki tureti
+            //kiti update veiksmai
+            submitButtonElement.innerText = "Update";
+            submitButtonElement.classList.add('btn-secondary');//pakeiciama klase tam kad pakeist spalva btn;
+            submitButtonElement.classList.remove('btn-primary');//pasalinam, kad nesipjautu dvi spalvos
+            currentProduct = elementIndex;//nustatome kokia vieta redaguuojamo rodukto masyve
+            submitButtonElement.onclick = updateProduct;
+         }
+
+         const updateProduct = (event) => {
+            //page reload prevencija
+            event.preventDefault();
+            //pagal currentProduct indeksa, gauta is atnaujinimo rezimo funkcijos, pakeiciame reiksmes i naujas,, gautas i inputu.
+            products[currentProduct].title = titleInputElement.value;
+            products[currentProduct].price = priceInputElement.value;
+            products[currentProduct].stock = stockInputElement.value;
+            products[currentProduct].brand = brandInputElement.value;
+            products[currentProduct].category = categoryInputElement.value;
+            getTableContents();
+            //atstatomas pradinis state
+            editMode = false;
+            currentProduct = undefined;//nenorima kad uzsiliktu pries tai priskirta produktui indeksas
+            submitButtonElement.onclick = createNewRecord;
+            submitButtonElement.innerText = "Submit";
+            submitButtonElement.classList.remove('btn-secondary');
+            submitButtonElement.classList.add('btn-primary');
+            //resetinti-nunulinti laukus
+            titleInputElement.value = '';
+            priceInputElement.value = '';
+            stockInputElement.value = '';
+            brandInputElement.value = '';
+            categoryInputElement.value = '';
+            localStorage.setItem('products', JSON.stringify(products));
+
+         }
+    </script>
+</body>
+</html>

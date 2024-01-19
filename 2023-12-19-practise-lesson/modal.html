@@ -114,19 +114,23 @@
     {
         modalBackground.style.visibility = "hidden";
     }
+
     modalBackground.onclick = (event) => {
-        event.stopPropagation();
         console.log("Clicked on modal background")
-        // closeModal();
+        closeModal();
     }
-    modal.onclick = () => {
+    modal.onclick = (event) => {
         console.log("Clicked on modal")
+        event.stopPropagation();// skirta isdefirencijuoti, kuris modalinis langas, kur backgroundas, todel dabar uzdaroma kai clickas tik ant backgroundo
     }
 
     // 2. modalinio lango valdymas su <dialog>
     const modalDialog = document.querySelector("dialog");
     // modalDialog.show();// sis metodas iskviecia modal langa ir nereikia aprasineti atskkyrrai funkciju
     // console.log(modalDialog)
+
+    //Events bubuling - kai event'as atsitinka keliems elementams vienu metu
+
 
 </script>
 </body>
