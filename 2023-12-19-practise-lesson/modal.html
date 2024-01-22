@@ -122,6 +122,7 @@
     modal.onclick = (event) => {
         console.log("Clicked on modal")
         event.stopPropagation();// skirta isdefirencijuoti, kuris modalinis langas, kur backgroundas, todel dabar uzdaroma kai clickas tik ant backgroundo
+        //stopPropagation - jis neperduoda clicko i elemeta kuris yra po juo
     }
 
     // 2. modalinio lango valdymas su <dialog>

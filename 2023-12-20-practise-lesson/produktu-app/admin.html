@@ -14,6 +14,11 @@
 </head>
 <body>
     <div class="container">
+        <nav class="mb-3 pt-3">
+            <a href="./products.html" class="me-3 btn btn-primary">Produktai</a>
+            <a href="./admin.html" class="me-3 btn btn-primary">Admin panelė</a>
+
+        </nav>
         <form action="">
             <div class="row mt-5">
                 <div class="col-4">
@@ -141,10 +146,10 @@
     <dialog 
 
     id="productInfo"
-    style="width: 70%;"
+    style="width: 80%;"
     class="border border-secondary-subtle rounded-1">
-        <div style="width: 70%; margin: 0 auto;">
-            <img class="card mb-3" style="max-width: 70%;"
+        <!-- <div style="width: 80%; margin: 0 auto;">
+            <img class="card mb-3" style="max-width: 80%;"
             src="https://images.pexels.com/photos/887751/pexels-photo-887751.jpeg" 
             alt="Product foto"
             />
@@ -161,7 +166,10 @@
                     <span class="col-9">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga enim provident voluptas quas laborum quidem eos quasi ipsum mollitia dolor, eligendi, vero aliquid cumque hic et dolorum dicta veritatis necessitatibus culpa architecto eius in libero officiis odio. Est, quo quis!</span>
                 </div>
             </div>
-         </div>
+            <div class="d-flex flex-row-reverse">
+                <button class="btn btn-secondary mt-4" id="closeModal">Close</button>
+            </div>  
+         </div> -->
     </dialog>
     <script>
         //CRUD: 
@@ -169,6 +177,8 @@
         //Read - peržiūrėti įrašą
         //Update - atnaujinti įrašą
         //Delete - ištrinti įrašą
+        // ------------------------------------- Read ---------------------------
+
         console.log(localStorage.getItem('products'));
         if(!localStorage.getItem('products')){
             console.log("pirmas kartas");// bus parodomas tik karta, kai local storace su raktu products nebus irasu
@@ -177,11 +187,16 @@
         const products = JSON.parse(localStorage.getItem('products')); //pirmas zingsnis apjungiant buvo products.js obekto pasalinimas, ir siuo pridedamas tas pats product masyvas
         // console.log(typeof products);//matoma jog stringas, reik pasiversti i masyva
         
+        if (!localStorage.getItem("products"))
+        {
+            localStorage.setItem('products','1');
+        }
         let currentId = 1;
 
-        // ------------------------------------- Read ---------------------------
+
         let editMode = false;//elemntas reikalingas update 
         let currentProduct;//elemntas reikalingas update 
+
         const dynamicDataElement = document.getElementById('dynamic-data'),
             titleInputElement = document.getElementById('title'),
             priceInputElement = document.getElementById('price'),
@@ -193,7 +208,8 @@
             photoElement = document.getElementById('imageURL'),
             discountElement = document.getElementById('discount'),
             ratingElement = document.getElementById('rating'),
-            descriptionElement = document.getElementById('description');
+            descriptionElement = document.getElementById('description'),
+            closeModalElement = document.getElementById('closeModal');
 
         /* 
         //Šitas būdas - suveikia, nes aprašomos funkcijos vieta kode yra nesvarbi.
@@ -257,8 +273,49 @@
         const showModal = (id) => {
             let elementIndex = products.findIndex((value) => value.id === id);
             const product = products[elementIndex];//si eilute reikalinga tam kad gauti produkta ant kuriio ID buvo paspausta
+            
+            let dynamicHTML = `<div id="modalBody" style="width:100%; height:100%"><div style="width: 80%; margin: 0 auto;">
+            <img class="card mb-3" style="max-width: 80%;"
+            src="${product.thumbnail}" 
+            alt="Product foto"
+            />
+            <div class="product-details">
+                <div class="row  mb-2">
+                    <span class="col-lg-3 fw-bold">Nuolaida</span>
+                    <span class="col-lg-3">${product.discountPercentage}</span>
+                <div class="row  mb-2">
+                    <span class="col-lg-3 fw-bold"">Ivertinimas</span>
+                    <span class="col-lg-3">${product.rating}</span>
+                </div>
+                <div class="row  mb-2">
+                    <span class="col-lg-3 fw-bold"">Aprasymas</span>
+                    <span class="col-lg-9">${product.description}</span>
+                </div>
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <button class="btn btn-danger mt-4" id="closeModal" onclick="modalElement.close()">Close</button>
+            </div>  
+         </div></div>`;
+            modalElement.innerHTML = dynamicHTML;
+            //turi buti atliekama si funkcija kai paclickinama, gauname kaip aprametra event 
+            //kadangi modal langas dinamiskai sugeneruojamas, tai tik po jo sugeneravimo galima atlikti cia zmeiau aprasytus veismus, kkol elementas neegzistuoja mes negalime su juo tlikti onclikc veiksmus, ir negali ivykti stopPropagation
+            document.querySelector('#modalBody').onclick = (event) => {
+                event.stopPropagation()
+                console.log("Clicked on modal element")
+            }
             modalElement.showModal();
         }
+        
+        modalElement.onclick = () => {
+            console.log("Clicked on modal body");
+            modalElement.close();
+        }
+        
+        // function closeModal(event){
+        // modalElement.close()
+        // }
+        // closeModalElement.onclick = closeModal;
+        
 
         // Self-Invoking Functions - automatinis funkcijos iškvietimas, apskliaudus funkcijair uz jos padejus skiausteleius.
         // sitos nebereikia naudoti, nes auksciau atliktas automatinis funkcijjos iskvietimas.P.S. atsirado klaida ir destytojas panaikino automatini funkcijos iskvietima.
@@ -283,9 +340,10 @@
                 category: categoryInputElement.value,
                 thumbnail: photoElement.value, 
             };
-            currentId++ //bus kuriamas sis parametras ir pripliusuojama
+            currentId++; //bus kuriamas sis parametras ir pripliusuojama
             products.push(newProduct);
             localStorage.setItem('products', JSON.stringify(products));
+            localStorage.setItem('currentId',currentId);
             getTableContents(products);
         }
         submitButtonElement.onclick = createNewRecord;//cia funkcija paduodama kaip kintamasis
@@ -311,6 +369,10 @@
             stockInputElement.value = product.stock;
             brandInputElement.value = product.brand;
             categoryInputElement.value = product.category;
+            photoElement.value = product.thumbnail;
+            ratingElement.value = product.rating;
+            descriptionElement.value = product.description;
+            discountElement.value = product.discountPercentage;
 
             //uzsetinamas editinimo state
             editMode = true;//jo niekur nepanaudojam, destytojas sako, jog gera praktika tokki tureti
@@ -331,6 +393,11 @@
             products[currentProduct].stock = stockInputElement.value;
             products[currentProduct].brand = brandInputElement.value;
             products[currentProduct].category = categoryInputElement.value;
+            products[currentProduct].thumbnail = photoElement.value;
+            products[currentProduct].rating = ratingElement.value;
+            products[currentProduct].description = descriptionElement.value;
+            products[currentProduct].discountPercentage = discountElement.value;
+
             getTableContents();
             //atstatomas pradinis state
             editMode = false;
@@ -339,12 +406,18 @@
             submitButtonElement.innerText = "Submit";
             submitButtonElement.classList.remove('btn-secondary');
             submitButtonElement.classList.add('btn-primary');
+
             //resetinti-nunulinti laukus
             titleInputElement.value = '';
             priceInputElement.value = '';
             stockInputElement.value = '';
             brandInputElement.value = '';
             categoryInputElement.value = '';
+            photoElement.value = '';
+            ratingElement.value = '';
+            descriptionElement.value = '';
+            discountElement.value = '';
+
             localStorage.setItem('products', JSON.stringify(products));
 
          }
