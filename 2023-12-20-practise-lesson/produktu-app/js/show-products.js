@@ -1,3 +1,5 @@
+const products =JSON.parse(localStorage.getItem("products"));
+
 console.log(products);
 
 function generateStars(rating){
@@ -27,7 +29,7 @@ function showProducts(){
             <div class="product-image">
                 <span class="discount">-${Math.round(product.discountPercentage)}%</span>
                 <img
-                    src="https://images.pexels.com/photos/887751/pexels-photo-887751.jpeg"
+                    src="${product.thumbnail}"
                     alt="product image"
                     class="product-img"
                 />
