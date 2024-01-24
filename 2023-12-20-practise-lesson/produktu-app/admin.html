@@ -78,6 +78,7 @@
                 <div class="col-4 mt-2">
                     <label for="category">Kategorija</label>
                     <select id="category" name="category" class="form-select">
+                        <option></option>
                         <option>smartphones</option>
                         <option>laptops</option>
                         <option>fragrances</option>
@@ -182,7 +183,8 @@
                         id="filter-product-category" 
                         name="filter-product-category" 
                         class="form-select"
-                    >
+                    >                        
+                        <option></option>
                         <option>smartphones</option>
                         <option>laptops</option>
                         <option>fragrances</option>
@@ -200,9 +202,9 @@
                         class="form-control"
                     />
                 </div>
-                <!-- <div class="col-4 mt-4">
-                    <button class="btn btn-primary mt-2" id="filter">Filter</button>
-                </div> -->
+                <div class="col-12 mt-4 d-md-flex justify-content-md-end">
+                    <button class="btn btn-secondary" id="resetFilter">Reset</button>
+                </div>
             </div>
         </form>
 
@@ -309,7 +311,8 @@
             filterPriceToElement = document.getElementById('filter-price-to'),
             filterBrandElement = document.getElementById('filter-product-brand'),
             filterCategoryElement = document.getElementById('filter-product-category'),
-            filterDescriptionElement = document.getElementById('filter-product-description');
+            filterDescriptionElement = document.getElementById('filter-product-description'),
+            resetFilterElement = document.getElementById('resetFilter');
 
             // ----------------------------FILTRAS--------------------------------
             // filtravimui pridedami laukeliams eventai:
@@ -317,6 +320,8 @@
             filterPriceFromElement.onkeyup = filter;
             filterPriceToElement.onkeyup = filter;
             filterBrandElement.onkeyup = filter;
+            filterDescriptionElement.onkeyup = filter;
+            filterCategoryElement.onchange = filter;
 
             // Visi 3 eventai yra itraukti i filter funkcija, todel nebereikalinga sita vieta
             // filterNameElement.onkeyup = (event) => {
@@ -350,8 +355,10 @@
                 let minPrice = +filterPriceFromElement.value;
                 let maxPrice = +filterPriceToElement.value;
                 let productBrand = filterBrandElement.value.toLowerCase();
-                console.log(maxPrice);
-                console.log(minPrice);
+                let productDescription = filterDescriptionElement.value.toLowerCase();
+                let productCategory = filterCategoryElement.value.toLowerCase();
+                // console.log(maxPrice);
+                // console.log(minPrice);
                 // const filteredArray = products.filter( -> reikia keisti i let, kad galima butu perrasyti masyva ir ji dar kata panaudoti filtruojant
                 let filteredArray = products.filter((product) => 
                 product.title.toLowerCase().includes(productName)
@@ -369,8 +376,36 @@
                 product.brand.toLowerCase().includes(productBrand)
                 );
                 getTableContents(filteredArray);
+                filteredArray = filteredArray.filter((product) => 
+                product.description.toLowerCase().includes(productDescription)
+                );
+                filteredArray = filteredArray.filter((product) => 
+                product.category.toLowerCase().includes(productCategory)
+                );
+                getTableContents(filteredArray);
             }
 
+            // RESET FILTERING
+            // Aprasymas naudojant function
+            // function resetFilter () {
+            //     titleInputElement.value = '';
+            //     priceInputElement.value = '';
+            //     stockInputElement.value = '';
+            //     brandInputElement.value = '';
+            //     categoryInputElement.value = '';
+            // }
+            // resetFilterElement.onclick = resetFilter;
+
+            // Aprasymas naudojant anonimine funkcija:
+
+            resetFilterElement.onclick = () => {
+                filterNameElement.value = '';
+                filterPriceToElement.value = '';
+                filterPriceFromElement.value = '';
+                filterBrandElement.value = '';
+                filterCategoryElement.value = '';
+                filterDescriptionElement.value = '';
+            }
 
         /* 
         //Šitas būdas - suveikia, nes aprašomos funkcijos vieta kode yra nesvarbi.
@@ -528,7 +563,15 @@
 
          // ------------------------------------- Delete -----------------------------
          const deleteProduct = (id) => {
-            let elementIndex = products.findIndex(value=>value.id ===id);//produkto susiradimas
+            let elementIndex = products.findIndex(value=>value.id ===id);//produkto susiradimas,shorthand description
+            // senovinis funkcijos aprasymo budas
+            // let elementIndex = products.findIndex(function(value) {
+            //     return value.id === id;
+            // });
+            // truputi naujesnis funkcijos aprasymo budas:
+            // let elementIndex = products.findIndex((value) => {
+            //     return value.id === id;
+            // });
             // console.log(elementIndex)
             products.splice(elementIndex,1);
             getTableContents(products); //sitos funkcijos reikia, kad istrintas irasas isnyktu issaraso, butu is naujo pergeneruojamas listas
