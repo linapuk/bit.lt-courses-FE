@@ -29,15 +29,18 @@ async function fillSelectElements() //2.2
     const allPromises = allURLs.map((url)=> fetch(url).then(response=>response.json())
     );//R.3
     const allValues = await Promise.all(allPromises); //R.4
-    console.log(allValues);//R.5
+    // console.log(allValues);//R.5
     
     const [allCategories,allGlasses,allIngredients] = allValues; //R.6 kadangi masyve pirmas elementas yra fetchas gauti kategorijas, todel susikuriam allCategories
-    console.log(selectValues); // R.7 taip sukuriam objekto masyva, o su mapu bandom gauti tik pacias reiksmes
+    // console.log(selectValues); // R.7 taip sukuriam objekto masyva, o su mapu bandom gauti tik pacias reiksmes
     selectValues.categories = allCategories.drinks.map(categoryObj => categoryObj.strCategory); // turime categories masyva susidedanti is reiksmiu, kurios jau nebera objekte.
     selectValues.glasses = allGlasses.drinks.map(glass => glass.strGlass);
     selectValues.ingredients = allIngredients.drinks.map(ingredient => ingredient.strIngredient1); //ingridientu masyvas irgi yra objekte, todel tam kad is pirminio objekto issiparsinti reiksmes, prirasome.drinks, o su map,, is masyvo istrrukiame objektus, taip turime visus ingridentus viename masyve.
     
-    fillCategorySelect(allCategories.drinks, categorySelectElement, "strCategory")
+    fillCategorySelect(allCategories.drinks, categorySelectElement, "strCategory"); //R.9
+    fillCategorySelect(allGlasses.drinks, glassSelectElement, "strGlass"); //R.10
+    fillCategorySelect(allIngredients.drinks, ingridientSelectElement, "strIngredient1");
+
     
   /*   // 1.2 Kategoriju API
     await fetch ("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list")
@@ -50,7 +53,7 @@ async function fillSelectElements() //2.2
         // .finally((response) => console.log("Uzklausa baigta")); // kai pazadas yra ivykdytas t.y.suveikia abu then arba catch, tik tada paleidziamas finally, realiai cia nelb reikalingas
         // reiks prasukti cikla pro visus situos obbjektus ir steCategory prisideti prie categorySelectElement laukelio */
 
-    // 1.4 Stikliniu tipu API
+/*     // 1.4 Stikliniu tipu API
     await fetch ("https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list")
     .then((response ) => response.json())
     .then(response => fillCategorySelect(response.drinks, glassSelectElement, "strGlass")) //console.log(response))  patikrinam objekto sandara, koks lauko pavadinimas, siuo atveju yra strGlass:
@@ -63,7 +66,7 @@ async function fillSelectElements() //2.2
     .catch((error) => console.log(error))
     const endDate = new Date();
     const difference = endDate.getTime() - startTime.getTime()
-    console.log(difference)
+    console.log(difference) */
 }
 // fillSelectElements funkcija pries refaktorinima
 /* async function fillSelectElements() //2.2
@@ -101,7 +104,7 @@ function fillCategorySelect (properties, selectElement, strFieldName) // 1.5 pap
         // console.log(category.strCategory) //1.3.1
         // categoriesAarray.push(property.strCategory) // kategoriju masyvo pridejimas, uzkomenuotas nes prkelta i kita funkcija
     }
-    selectElement.innerHTML = dynamicHTML; //1.3.6 atvaizdavimo HTMLe pridejimas
+    selectElement.innerHTML += dynamicHTML; //1.3.6 atvaizdavimo HTMLe pridejimas //4.6
     // console.log(categoriesAarray); //1.3.3 matome jog gavome kategoriju selekto duomenis
 }
 
@@ -143,6 +146,30 @@ function generateDrinksHTML(drinks) // 3.1 // pridedam parametra, nes norima bus
     }
     dynamicDrinksElement.innerHTML = dynamicHTML; //3.4
 }
+
+// 4. Filtracija
+async  function filter() //4.1
+{
+    const searchValue = coctailNameFilterElement.value, 
+        category = categorySelectElement.value,
+        glass = glassSelectElement.value,
+        ingridient = ingridientSelectElement.value; // 4.2
+    // console.log(searchValue, category, glass, ingridient); //4.4
+    let filteredArray = [...drinksArray]; // 4.7.1 pridedam masyvo koija, let gera rpaktika nes mes perrasynesime ta apti masyva
+    console.log(filteredArray);
+    if (searchValue)
+    {
+        filteredArray = filteredArray.filter((drinkObj)=>drinkObj.strDrink.toLowerCase().includes(searchValue.toLowerCase())
+        );
+    }// 4.7.2 jei searchValue egzistuoja, turi atlikti filtracija, ieskosim su filter metodu, turime gauti true arba fase, ieskome objekte tarp lauku strDrink, paverciam mazosiomis raidemis, ir includes - idedame reiksme su kuria norime lyginti.
+    if (category !== "Select category")
+    {
+        // atlikti filtracija pagal kategorija
+    }
+    console.log(filteredArray) //4.7.3
+generateDrinksHTML(filteredArray)  //4.7.4
+}
+
 // 2.
 // 2.1.
 async function initialization() // initialization yra toks laiko tarpas per kuri pirma surenkami tokie duomenys kurie uzpildomo filtro elementus, tai cia toks pirmas etapas, o antras etapas buna gerimu atvaizdavimas ir tada inicializacijos pabaiga, ir aplikacija jau pati nieko nebeatliks ir lauks vartotojjo veiksmu.
@@ -155,4 +182,7 @@ async function initialization() // initialization yra toks laiko tarpas per kuri
     generateDrinksHTML(drinksArray); //3.5
     // console.log(drinksArray) // 2.12 patikrinti ar visi gerimai sudedami i masyva, matome jog gauname masyva objektu pavidalu masyvus, todel reik sumapinti, kad butu tiesiogiai objektai 
 }
+
+searchButtonElement.addEventListener('click', filter); // ilgenis uzrasymas butu searchButtonElement.addEventListener('click', () => { filter()});
+
 initialization() // 2.5 funkkcijos iskvietimas
