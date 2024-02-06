@@ -24,7 +24,7 @@ const  selectValues = {}, //categoriesAarray = [], // 1.3.1 kintamasis masyvui R
 // API
 async function fillSelectElements() //2.2
 {
-    const startTime = new Date();
+    // const startTime = new Date();
     const allURLs = ["https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list", "https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list", "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"]; //R.2
     const allPromises = allURLs.map((url)=> fetch(url).then(response=>response.json())
     );//R.3
@@ -41,32 +41,6 @@ async function fillSelectElements() //2.2
     fillCategorySelect(allGlasses.drinks, glassSelectElement, "strGlass"); //R.10
     fillCategorySelect(allIngredients.drinks, ingridientSelectElement, "strIngredient1");
 
-    
-  /*   // 1.2 Kategoriju API
-    await fetch ("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list")
-        .then((response ) => response.json())
-        .then(response => { fillCategorySelect(response.drinks, categorySelectElement, "strCategory")
-        // Map metodas grazina is objetu masyvo objektu laukus strCategory
-        categoriesAarray.push(...response.drinks.map((value)=>value.strCategory)); // 2.6 prie masyvo pridedam masyva su spread operatoriumi 2.7. su map keiciame masyvo reiksmes i string
-        }) //1.3.2 gauname viena objekta, kuris sudarytas is masyvo,, kuriame yra objektas, kur objektas turi tik viena lauka strCategory
-        .catch((error) => console.log(error))
-        // .finally((response) => console.log("Uzklausa baigta")); // kai pazadas yra ivykdytas t.y.suveikia abu then arba catch, tik tada paleidziamas finally, realiai cia nelb reikalingas
-        // reiks prasukti cikla pro visus situos obbjektus ir steCategory prisideti prie categorySelectElement laukelio */
-
-/*     // 1.4 Stikliniu tipu API
-    await fetch ("https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list")
-    .then((response ) => response.json())
-    .then(response => fillCategorySelect(response.drinks, glassSelectElement, "strGlass")) //console.log(response))  patikrinam objekto sandara, koks lauko pavadinimas, siuo atveju yra strGlass:
-    .catch((error) => console.log(error))
-
-    // 1.6 Ingridientu tipu API
-    await fetch ("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
-    .then((response ) => response.json())
-    .then(response => fillCategorySelect(response.drinks, ingridientSelectElement, "strIngredient1")) //strIngredient1:
-    .catch((error) => console.log(error))
-    const endDate = new Date();
-    const difference = endDate.getTime() - startTime.getTime()
-    console.log(difference) */
 }
 // fillSelectElements funkcija pries refaktorinima
 /* async function fillSelectElements() //2.2
@@ -155,7 +129,7 @@ async  function filter() //4.1
         glass = glassSelectElement.value,
         ingridient = ingridientSelectElement.value; // 4.2
     // console.log(searchValue, category, glass, ingridient); //4.4
-    let filteredArray = [...drinksArray]; // 4.7.1 pridedam masyvo koija, let gera rpaktika nes mes perrasynesime ta apti masyva
+    let filteredArray = [...drinksArray]; // 4.7.1 pridedam masyvo koija, let gera praktika, nes mes perrasynesime ta apti masyva
     console.log(filteredArray);
     if (searchValue)
     {
@@ -183,6 +157,6 @@ async function initialization() // initialization yra toks laiko tarpas per kuri
     // console.log(drinksArray) // 2.12 patikrinti ar visi gerimai sudedami i masyva, matome jog gauname masyva objektu pavidalu masyvus, todel reik sumapinti, kad butu tiesiogiai objektai 
 }
 
-searchButtonElement.addEventListener('click', filter); // ilgenis uzrasymas butu searchButtonElement.addEventListener('click', () => { filter()});
+searchButtonElement.addEventListener('click', filter); // 4.4 ilgenis uzrasymas butu searchButtonElement.addEventListener('click', () => { filter()});
 
 initialization() // 2.5 funkkcijos iskvietimas

@@ -1,4 +1,4 @@
-/* const allUrls1 = [
+const allUrls1 = [
 		"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka",
 	],
 	allUrls2 = [
@@ -82,7 +82,7 @@ async function fetchAllDataIngredient(urls)
     const duration = endTime.getTime() - startTime.getTime();
     console.log(duration +"ms"+" async II budas - all at the same time");
 }
-fetchAllDataIngredient(allUrls3) */
+fetchAllDataIngredient(allUrls3)
 
 const array = [1, 2, 3, 4];
 //masyvo kopijos sukurimas
@@ -94,6 +94,7 @@ console.log(array3);
 array.push(5);
 console.log(array);
 console.log(array2); // pasikeite masyvas ir array2
+console.log(array3);
 
 // MASYVO DESTRUKTURAVIMAS
 // UZDUOTIS is masyvo array reik pirmuju 3 reiksmiu:

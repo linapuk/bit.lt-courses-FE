@@ -68,8 +68,8 @@ async function getAllDrinks() //2.8 kadangi gavome 11 kokteiliu kategoriju, tode
 // https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink URL skirtas gauti gerimus pagal kategorija
     for(const category of categoriesAarray) // 2.10
     {
-        //2.11 reikia susigeneruoti dinamini URL tam kad gauti gerima pper kategorija, gerimo kategorija sudaryta is daugiau nei vieno zodzio atskyriama "_"
-        // vietoj tarpu iterpimas buksniuku galimas keliais budais:
+        //2.11 reikia susigeneruoti dinamini URL tam kad gauti gerima per kategorija, gerimo kategorija sudaryta is daugiau nei vieno zodzio atskyriama "_"
+        // vietoj tarpu iterpimas bruksniuku galimas keliais budais:
         // I - pasplitinti pavadinima per tarpus, pasiversti i masyva,, o paskui join su apatiniu bruksniuku
         // II - pasinaudoti replaceAll metodu (sitas metoas pasirinktas)
         let dynamicURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category.replaceAll(" ","_")}`;

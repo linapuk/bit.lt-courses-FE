@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+        rel="preconnect" 
+        href="https://fonts.googleapis.com">
+    <link 
+        rel="preconnect" 
+        href="https://fonts.gstatic.com" 
+        crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto:wght@400;700&family=Single+Day&display=swap" 
+        rel="stylesheet">
+    <title>Cocktail Bar</title>
+    <link 
+        href="style.css" 
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+</head>
+<body>
+    <!-- navigation iseina uz konteinerio ribu, todel conteiner yra navigation viduje -->
+    <div class="modal-bg">
+        <div class="modal">
+            <div class="modal-close-button">
+                <i class="bi bi-x-square-fill"></i>
+            </div>
+            <div>
+                <img 
+                    src="" 
+                    alt=""
+                    class="modal-img"
+                />
+            </div>
+            <div class="modal-details">
+                <h3 class="modal-title">A midsummernight dream</h3>
+                <div class="row">
+                    <b>Category:</b>
+                    <p id="modal-category">Coctail</p>
+                </div>
+                <div class="row">
+                    <b>Alcohol:</b>
+                    <p id="modal-alcohol">Alcoholic</p>
+                </div>
+                <div class="row">
+                    <b>Glass type:</b>
+                    <p id="modal-glass">Highball glass</p>
+                </div>
+                <div class="row">
+                    <b>Ingridients:</b>
+                    <div class="ingridients" id="modal-ingridients">
+                        <p class="ingridient"><b>Creme de:</b> <span>1oz</span></p>
+                        <p class="ingridient"><b>Creme de:</b> <span>1oz</span></p>
+                        <p class="ingridient"><b>Creme de:</b> <span>1oz</span></p>
+                    </div>                
+                </div>
+                <div class="row">
+                    <b>Recipe:</b>
+                    <p id="modal-recipe">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio tenetur alias nesciunt a voluptate assumenda quos veritatis perferendis sequi. Repellat quidem qui eum porro praesentium doloribus repudiandae possimus voluptates et.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="container nav-container">
+            <input type="text" placeholder="Cocktail name" id="coctail-name-filter">
+            <select id="category-select">
+                <option>Select category</option>
+            </select>
+            <select id="glass-type-select">
+                <option>Select glass type</option>
+            </select>
+            <select id="ingridient-select">
+                <option>Select ingridient</option>
+            </select>
+            <button id="search">Search</button>
+            <button id="im-lucky">Random</button>
+        </div>
+    </nav>
+    <div class="container drinks">
+        <!-- <div class="drink">
+            <img src="https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg" alt="">
+            <h2 class="drink-title">Drink title</h2>
+        </div>
+        <div class="drink">
+            <img src="https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg" alt="">
+            <h2 class="drink-title">Drink title</h2>
+        </div>
+        <div class="drink">
+            <img src="https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg" alt="">
+            <h2 class="drink-title">Drink title</h2>
+        </div>
+        <div class="drink">
+            <img src="https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg" alt="">
+            <h2 class="drink-title">Drink title</h2>
+        </div>
+        <div class="drink">
+            <img src="https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg" alt="">
+            <h2 class="drink-title">Drink title</h2>
+        </div>
+        <div class="drink">
+            <img src="https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg" alt="">
+            <h2 class="drink-title">Drink title</h2>
+        </div> -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
