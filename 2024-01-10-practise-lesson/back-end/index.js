@@ -117,7 +117,10 @@ server.post("/prisijungimas", (req, res)=>{
     //3. Ar slaptazodis atitinka:
     // a. jei atitinka - tada siunciame atsakyma is serverio "Sekmingai prisijungete prie sistemos"
     if (selectedUser.password === password)
-        res.send("Sekmingai prisijugete prie sistemos");
+        // res.send("Sekmingai prisijugete prie sistemos");
+        // Serveris peradresuija i kita svetaine
+        res.redirect("http://127.0.0.1:5500/bit.lt-courses-FE/2024-01-10-practise-lesson/front-end/todos.html"); // skiaustuose nurodoma kur turi nuredirektinti
+
 })
 
 // process.env.PORT // portas gaunamas pasinaudojant aplinkos kintamaisiais
