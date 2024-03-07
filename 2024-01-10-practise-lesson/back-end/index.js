@@ -28,6 +28,7 @@ server.use(cors()); // naudojam corsa kol kas ta kad nereiktu sukti galvos apie 
 server.use(express.json());
 
 const users =[]; //masyvas bus sudarytas is objektu
+const todos = [];
 
 
 //apsirasomas endpointas
@@ -104,27 +105,70 @@ server.post("/prisijungimas", (req, res)=>{
         password = req.body.password;
     //jei nera objekto username
     if (!username) 
-        return res.send("Prasome teisingai ivesti varotojo varda");
+        return res.status(400).send("Prasome teisingai ivesti varotojo varda");
     if (!password) 
-        return res.send("Prasome ivesti slaptazodi");
+        return res.status(400).send("Prasome ivesti slaptazodi");
     //2. Patikrinti, ar vartotojas su tokiu username egzistuoja bendrame masyve, jeigu neegzistuoja:
     // imame users masyva, ieskome naudojant find metoda, turesime kiekvie oje iteracijoje po varotoja, tikrinsime ar sis req.body.username, egzistuja nors viename vartotoje
     const selectedUser = users.find((user)=>user.username.toLowerCase() === username.toLowerCase()); // jei nerandamas, undefined
     if (!selectedUser) 
-        return res.send("Toks vartotojas neegzisuotja"); // pridejom return visiems kad is calbackines funkcijos iseina ir veliau nebus daromas joks kodas, patikrinimas, o sius zinute
+        return res.status(404).send("Toks vartotojas neegzisuotja"); // pridejom return visiems kad is calbackines funkcijos iseina ir veliau nebus daromas joks kodas, patikrinimas, o sius zinute
     // a. jei ne, tada siusti "Vartotojas neegzistuoja"
     // b. jei taip, toliau daromas tikrinimas
     //3. Ar slaptazodis atitinka:
     // a. jei atitinka - tada siunciame atsakyma is serverio "Sekmingai prisijungete prie sistemos"
     if (selectedUser.password === password)
+    {
+        return res.status(200).send("Sekmingai prisijungete prie sistemos");
+    }
+    return res.status(400).send("Blogi prisijungimo duomenys")
         // res.send("Sekmingai prisijugete prie sistemos");
         // Serveris peradresuija i kita svetaine
-        res.redirect("http://127.0.0.1:5500/bit.lt-courses-FE/2024-01-10-practise-lesson/front-end/todos.html"); // skiaustuose nurodoma kur turi nuredirektinti
+        // res.redirect("http://127.0.0.1:5500/bit.lt-courses-FE/2024-01-10-practise-lesson/front-end/todos.html"); // skiaustuose nurodoma kur turi nuredirektinti
 
+})
+
+//CRUD opeeracijos TODOS:
+//  Create "POST":
+server.post('/todos', (req, res) =>{
+    const {username, todo} = req.body // destytojas pasakojo jog tai atitkikmuo tbutu  const username = req.body.username; susikurs kintamieji tokie kokie reikia
+    // validacija, ar egzisuotja userame, todo, ar egzistuoja toks useris:
+    if(!username) return res.status(400).send("Blogai ivestas username"); // jam nesigavo tai dare su .json({zinute:"Blogai ivestas username"})
+    if(!todo) return res.status(400).send("Blogai ivestas todo");
+    const selectedUser = users.find((user)=>user.username.toLowerCase() === username); // paskutinis username turimas tas kur ateina is cia const {username, todo} = req.body 
+    // jeigu tokio userio nera vykdomas zemesne sakygaa jog useris undifined
+    if(!selectedUser)return res.status(404).send("Vartotojas nerastas!");
+    //naujos reiksmes pridejimas prie masyvo todos=[]
+    const newTodo = {id: todos.length+1, username, todo}
+    todos.push({username, todo});
+    res.status(201).json({message:"Naujas todo buvo sekmingai pridetas",newTodo});
+});
+// Read "GET" visu todos gavimas:
+server.get('/todos', (req, res)=>{
+    res.status(200).json(todos);
+});
+// Read "GET" konkretaus todos gavimas:
+server.get('/todos/:id',(req, res)=>{
+    // Namu darbai pabaigti
+});
+// Update "PUT" konkretaus iraso atnaujinimas:
+server.put('/todos/:id',(req, res)=>{
+    // reikalinga validacija kaip ir post metode:
+    // reikia gauti id ir laukeli kuri reiks updatinti
+    const id = +req.params.id; // + konvertuojam stringa i skaiciu
+    // tikrinam ar tai isvis skaicius, salyga sako, jog jeit ai nera skaicius grazinti klaidos koda ir pranesima:
+    if(isNaN(+id)) return res.status(400).json({message:"Įveskite tinkamą ID (skaicius)"});
+    const {username, todo} = req.body;
+    const existingUser = users.find((user)=>user.username.toLowerCase() === username.toLowerCase()); // cia gauname pati vartotoja, jei nerandama vykdome sekancia eilute:
+    if(!existingUser)return res.status(404).json({message:"Toks vartotojas neegzistuoja"});
+
+    const existingTodo = todos.findIndex((curreentTodo)=>curreentTodo.id === id);
+    todos[existingTodo] = {...todos[existingTodo], todo, username} //isspreadinimas uz kablelio laukeliai kuriuos norime pakeisti
 })
 
 // process.env.PORT // portas gaunamas pasinaudojant aplinkos kintamaisiais
 server.listen(3000, () => {
     console.log("Aplikacija pasileido, jos adresas http://localhost:3000/ ");
 }); // Porta isivaizduoti kaip elektros lizda, 3000-skirtas serveriui, kai html pasileidinejam, naudojam 5500 porta, kitas parametras callback funkcija - kuri nurodo, kas nutiks, kai portas pasileidzia
+
 
